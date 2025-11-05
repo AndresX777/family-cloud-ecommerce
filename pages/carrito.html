@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Family Cloud - Carrito de Compras">
+    <title>Carrito de Compras - Family Cloud</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="fs-4 fw-bold">FAMILY CLOUD</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hombres.html">Tiendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="#" class="text-white" aria-label="Facebook">
+                        <i class="bi bi-facebook fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <i class="bi bi-instagram fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="TikTok">
+                        <i class="bi bi-tiktok fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp fs-5"></i>
+                    </a>
+                    
+                    <a href="carrito.html" class="text-white position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════
+        SECCIÓN DEL CARRITO DE COMPRAS
+        ═══════════════════════════════════════════════════════════
+    -->
+    <section class="pt-5 mt-5 bg-light min-vh-100">
+        <div class="container py-5">
+            
+            <!-- TÍTULO -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold">
+                        <i class="bi bi-cart3 text-primary"></i> Carrito de Compras
+                    </h1>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                
+                <!-- 
+                    ┌────────────────────────────────────────────────────┐
+                    │   PRODUCTOS EN EL CARRITO (IZQUIERDA)              │
+                    └────────────────────────────────────────────────────┘
+                -->
+                <div class="col-lg-8">
+                    
+                    <!-- 
+                        CARRITO VACÍO (se muestra cuando no hay productos)
+                        d-none: Oculto por defecto, se muestra con JavaScript
+                    -->
+                    <div class="card border-0 shadow-sm mb-4 d-none" id="empty-cart">
+                        <div class="card-body text-center py-5">
+                            <i class="bi bi-cart-x display-1 text-muted mb-3"></i>
+                            <h3 class="mb-3">Tu carrito está vacío</h3>
+                            <p class="text-muted mb-4">
+                                ¡Agrega algunos productos increíbles a tu carrito!
+                            </p>
+                            <a href="../index.html#categories" class="btn btn-primary btn-lg">
+                                <i class="bi bi-arrow-left me-2"></i>
+                                Continuar Comprando
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 
+                        LISTA DE PRODUCTOS EN EL CARRITO
+                        Este contenedor se llenará dinámicamente con JavaScript
+                    -->
+                    <div id="cart-items-container">
+                        
+                        <!-- 
+                            ════════════════════════════════════════════════
+                            PRODUCTO DE EJEMPLO (PLANTILLA)
+                            ════════════════════════════════════════════════
+                            Esta estructura se replicará para cada producto
+                        -->
+                        <div class="card border-0 shadow-sm mb-3 cart-item" data-product-id="1">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    
+                                    <!-- IMAGEN DEL PRODUCTO -->
+                                    <div class="col-md-2 col-3">
+                                        <img src="../images/productos/hombres/camisa-1.jpg" 
+                                             class="img-fluid rounded" 
+                                             alt="Producto"
+                                             style="max-height: 100px; object-fit: cover;">
+                                    </div>
+                                    
+                                    <!-- INFORMACIÓN DEL PRODUCTO -->
+                                    <div class="col-md-4 col-9">
+                                        <h5 class="mb-1 fw-bold">Camisa Formal Azul</h5>
+                                        <p class="text-muted small mb-1">Talla: M</p>
+                                        <p class="text-muted small mb-0">Color: Azul</p>
+                                    </div>
+                                    
+                                    <!-- CONTROLES DE CANTIDAD -->
+                                    <div class="col-md-3 col-6 mt-3 mt-md-0">
+                                        <div class="input-group">
+                                            <!-- 
+                                                BOTÓN DECREMENTAR
+                                                decrease-quantity: Clase para JavaScript
+                                            -->
+                                            <button class="btn btn-outline-secondary decrease-quantity" 
+                                                    type="button"
+                                                    data-product-id="1">
+                                                <i class="bi bi-dash"></i>
+                                            </button>
+                                            
+                                            <!-- INPUT DE CANTIDAD -->
+                                            <input type="number" 
+                                                   class="form-control text-center quantity-input" 
+                                                   value="1" 
+                                                   min="1" 
+                                                   max="10"
+                                                   data-product-id="1">
+                                            
+                                            <!-- BOTÓN INCREMENTAR -->
+                                            <button class="btn btn-outline-secondary increase-quantity" 
+                                                    type="button"
+                                                    data-product-id="1">
+                                                <i class="bi bi-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- PRECIO Y BOTÓN ELIMINAR -->
+                                    <div class="col-md-2 col-3 text-end mt-3 mt-md-0">
+                                        <p class="fw-bold mb-2 text-primary product-price">
+                                            $80.000
+                                        </p>
+                                        <!-- 
+                                            BOTÓN ELIMINAR PRODUCTO
+                                            remove-item: Clase para JavaScript
+                                        -->
+                                        <button class="btn btn-sm btn-outline-danger remove-item" 
+                                                data-product-id="1">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Más productos se agregarán aquí dinámicamente -->
+
+                    </div>
+
+                    <!-- 
+                        BOTONES DE ACCIÓN
+                        Limpiar carrito y continuar comprando
+                    -->
+                    <div class="d-flex justify-content-between flex-wrap gap-3 mt-4">
+                        <a href="../index.html#categories" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Continuar Comprando
+                        </a>
+                        <button class="btn btn-outline-danger" id="clear-cart">
+                            <i class="bi bi-trash me-2"></i>
+                            Vaciar Carrito
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- 
+                    ┌────────────────────────────────────────────────────┐
+                    │   RESUMEN DEL PEDIDO (DERECHA)                     │
+                    └────────────────────────────────────────────────────┘
+                    Muestra el subtotal, envío y total
+                -->
+                <div class="col-lg-4">
+                    
+                    <!-- TARJETA DE RESUMEN -->
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card-body p-4">
+                            <h4 class="card-title fw-bold mb-4">Resumen del Pedido</h4>
+                            
+                            <!-- SUBTOTAL -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Subtotal</span>
+                                <span class="fw-semibold" id="cart-subtotal">$0</span>
+                            </div>
+                            
+                            <!-- ENVÍO -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <span>Envío</span>
+                                <span class="fw-semibold" id="cart-shipping">$15.000</span>
+                            </div>
+                            
+                            <!-- DESCUENTO (OPCIONAL) -->
+                            <div class="d-flex justify-content-between mb-3 text-success">
+                                <span>Descuento</span>
+                                <span class="fw-semibold" id="cart-discount">-$0</span>
+                            </div>
+                            
+                            <hr>
+                            
+                            <!-- TOTAL -->
+                            <div class="d-flex justify-content-between mb-4">
+                                <span class="h5 fw-bold">Total</span>
+                                <span class="h5 fw-bold text-primary" id="cart-total">$0</span>
+                            </div>
+
+                            <!-- CUPÓN DE DESCUENTO -->
+                            <div class="mb-4">
+                                <label for="coupon" class="form-label small fw-semibold">
+                                    Código de Cupón
+                                </label>
+                                <div class="input-group">
+                                    <input type="text" 
+                                           class="form-control" 
+                                           id="coupon" 
+                                           placeholder="Ingresa tu cupón">
+                                    <button class="btn btn-outline-primary" type="button" id="apply-coupon">
+                                        Aplicar
+                                    </button>
+                                </div>
+                                <small class="text-muted d-none" id="coupon-message"></small>
+                            </div>
+
+                            <!-- BOTÓN DE COMPRA -->
+                            <button class="btn btn-primary w-100 btn-lg mb-3" id="checkout-btn">
+                                <i class="bi bi-credit-card me-2"></i>
+                                Proceder al Pago
+                            </button>
+
+                            <!-- ENVÍO GRATIS -->
+                            <div class="alert alert-info mb-0 small">
+                                <i class="bi bi-truck me-2"></i>
+                                <strong>¡Envío gratis!</strong> En compras superiores a $150.000
+                            </div>
+
+                            <!-- MÉTODOS DE PAGO ACEPTADOS -->
+                            <div class="mt-4 text-center">
+                                <small class="text-muted d-block mb-2">Aceptamos:</small>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <i class="bi bi-credit-card-2-front fs-4 text-muted"></i>
+                                    <i class="bi bi-paypal fs-4 text-muted"></i>
+                                    <i class="bi bi-wallet2 fs-4 text-muted"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- GARANTÍAS Y BENEFICIOS -->
+                    <div class="card border-0 shadow-sm mt-4">
+                        <div class="card-body p-4">
+                            <h6 class="fw-bold mb-3">Beneficios de Compra</h6>
+                            
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="bi bi-shield-check text-primary me-3 fs-5"></i>
+                                <div>
+                                    <strong class="d-block small">Compra Segura</strong>
+                                    <small class="text-muted">Protección de datos garantizada</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="bi bi-arrow-repeat text-primary me-3 fs-5"></i>
+                                <div>
+                                    <strong class="d-block small">Devolución Fácil</strong>
+                                    <small class="text-muted">30 días para devoluciones</small>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start">
+                                <i class="bi bi-headset text-primary me-3 fs-5"></i>
+                                <div>
+                                    <strong class="d-block small">Soporte 24/7</strong>
+                                    <small class="text-muted">Estamos aquí para ayudarte</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Family Cloud</h5>
+                    <p class="small">Tu tienda de confianza para ropa y accesorios</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
+                        <li><a href="contacto.html" class="text-white-50 text-decoration-none">Contacto</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-tiktok fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-whatsapp fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3 bg-secondary">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">&copy; 2025 Family Cloud. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+    <!-- 
+        ════════════════════════════════════════════════════════════
+        SCRIPT ESPECÍFICO DEL CARRITO
+        ════════════════════════════════════════════════════════════
+        Maneja toda la lógica del carrito de compras
+    -->
+    <script>
+        // ═══════════════════════════════════════════════════════════
+        // CLASE PARA MANEJAR EL CARRITO DE COMPRAS
+        // ═══════════════════════════════════════════════════════════
+        class ShoppingCart {
+            constructor() {
+                // Cargar carrito desde localStorage o crear uno vacío
+                this.items = this.loadCart();
+                this.shippingCost = 15000; // Costo de envío fijo
+                this.freeShippingThreshold = 150000; // Umbral para envío gratis
+                this.init();
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // CARGAR CARRITO DESDE LOCALSTORAGE
+            // ═══════════════════════════════════════════════════════
+            loadCart() {
+                const savedCart = localStorage.getItem('familyCloudCart');
+                return savedCart ? JSON.parse(savedCart) : [];
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // GUARDAR CARRITO EN LOCALSTORAGE
+            // ═══════════════════════════════════════════════════════
+            saveCart() {
+                localStorage.setItem('familyCloudCart', JSON.stringify(this.items));
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // INICIALIZAR EVENTOS Y RENDERIZAR
+            // ═══════════════════════════════════════════════════════
+            init() {
+                this.renderCart();
+                this.attachEventListeners();
+                this.updateCartCount();
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // RENDERIZAR PRODUCTOS EN EL CARRITO
+            // ═══════════════════════════════════════════════════════
+            renderCart() {
+                const container = document.getElementById('cart-items-container');
+                const emptyCart = document.getElementById('empty-cart');
+
+                if (this.items.length === 0) {
+                    // Mostrar mensaje de carrito vacío
+                    container.innerHTML = '';
+                    emptyCart.classList.remove('d-none');
+                } else {
+                    // Mostrar productos
+                    emptyCart.classList.add('d-none');
+                    container.innerHTML = this.items.map((item, index) => `
+                        <div class="card border-0 shadow-sm mb-3 cart-item" data-index="${index}">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 col-3">
+                                        <img src="${item.image}" 
+                                             class="img-fluid rounded" 
+                                             alt="${item.name}"
+                                             style="max-height: 100px; object-fit: cover;">
+                                    </div>
+                                    <div class="col-md-4 col-9">
+                                        <h5 class="mb-1 fw-bold">${item.name}</h5>
+                                        <p class="text-muted small mb-1">Talla: ${item.size || 'Única'}</p>
+                                        <p class="text-muted small mb-0">Color: ${item.color || 'N/A'}</p>
+                                    </div>
+                                    <div class="col-md-3 col-6 mt-3 mt-md-0">
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary decrease-quantity" 
+                                                    type="button" data-index="${index}">
+                                                <i class="bi bi-dash"></i>
+                                            </button>
+                                            <input type="number" 
+                                                   class="form-control text-center quantity-input" 
+                                                   value="${item.quantity}" 
+                                                   min="1" max="10"
+                                                   data-index="${index}">
+                                            <button class="btn btn-outline-secondary increase-quantity" 
+                                                    type="button" data-index="${index}">
+                                                <i class="bi bi-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-3 text-end mt-3 mt-md-0">
+                                        <p class="fw-bold mb-2 text-primary">
+                                            $${this.formatPrice(item.price * item.quantity)}
+                                        </p>
+                                        <button class="btn btn-sm btn-outline-danger remove-item" 
+                                                data-index="${index}">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+
+                this.updateSummary();
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // ACTUALIZAR RESUMEN DEL PEDIDO
+            // ═══════════════════════════════════════════════════════
+            updateSummary() {
+                const subtotal = this.calculateSubtotal();
+                const shipping = subtotal >= this.freeShippingThreshold ? 0 : this.shippingCost;
+                const total = subtotal + shipping;
+
+                document.getElementById('cart-subtotal').textContent = `$${this.formatPrice(subtotal)}`;
+                document.getElementById('cart-shipping').textContent = shipping === 0 ? 'Gratis' : `$${this.formatPrice(shipping)}`;
+                document.getElementById('cart-total').textContent = `$${this.formatPrice(total)}`;
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // CALCULAR SUBTOTAL
+            // ═══════════════════════════════════════════════════════
+            calculateSubtotal() {
+                return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // FORMATEAR PRECIO (agregar puntos de miles)
+            // ═══════════════════════════════════════════════════════
+            formatPrice(price) {
+                return price.toLocaleString('es-CO');
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // ACTUALIZAR CONTADOR DEL CARRITO EN NAVBAR
+            // ═══════════════════════════════════════════════════════
+            updateCartCount() {
+                const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
+                document.getElementById('cart-count').textContent = totalItems;
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // AGREGAR EVENT LISTENERS
+            // ═══════════════════════════════════════════════════════
+            attachEventListeners() {
+                const container = document.getElementById('cart-items-container');
+                
+                // Aumentar cantidad
+                container.addEventListener('click', (e) => {
+                    if (e.target.closest('.increase-quantity')) {
+                        const index = e.target.closest('.increase-quantity').dataset.index;
+                        this.increaseQuantity(index);
+                    }
+                });
+
+                // Disminuir cantidad
+                container.addEventListener('click', (e) => {
+                    if (e.target.closest('.decrease-quantity')) {
+                        const index = e.target.closest('.decrease-quantity').dataset.index;
+                        this.decreaseQuantity(index);
+                    }
+                });
+
+                // Eliminar producto
+                container.addEventListener('click', (e) => {
+                    if (e.target.closest('.remove-item')) {
+                        const index = e.target.closest('.remove-item').dataset.index;
+                        this.removeItem(index);
+                    }
+                });
+
+                // Vaciar carrito
+                document.getElementById('clear-cart')?.addEventListener('click', () => {
+                    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                        this.clearCart();
+                    }
+                });
+
+                // Proceder al pago
+                document.getElementById('checkout-btn')?.addEventListener('click', () => {
+                    if (this.items.length === 0) {
+                        alert('Tu carrito está vacío');
+                        return;
+                    }
+                    alert('Funcionalidad de pago en desarrollo');
+                    // Aquí iría la lógica para procesar el pago
+                });
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // AUMENTAR CANTIDAD
+            // ═══════════════════════════════════════════════════════
+            increaseQuantity(index) {
+                if (this.items[index].quantity < 10) {
+                    this.items[index].quantity++;
+                    this.saveCart();
+                    this.renderCart();
+                    this.updateCartCount();
+                }
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // DISMINUIR CANTIDAD
+            // ═══════════════════════════════════════════════════════
+            decreaseQuantity(index) {
+                if (this.items[index].quantity > 1) {
+                    this.items[index].quantity--;
+                    this.saveCart();
+                    this.renderCart();
+                    this.updateCartCount();
+                }
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // ELIMINAR PRODUCTO
+            // ═══════════════════════════════════════════════════════
+            removeItem(index) {
+                this.items.splice(index, 1);
+                this.saveCart();
+                this.renderCart();
+                this.updateCartCount();
+            }
+
+            // ═══════════════════════════════════════════════════════
+            // VACIAR CARRITO
+            // ═══════════════════════════════════════════════════════
+            clearCart() {
+                this.items = [];
+                this.saveCart();
+                this.renderCart();
+                this.updateCartCount();
+            }
+        }
+
+        // ═══════════════════════════════════════════════════════════
+        // INICIALIZAR CARRITO CUANDO EL DOM ESTÉ LISTO
+        // ═══════════════════════════════════════════════════════════
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = new ShoppingCart();
+        });
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+    ════════════════════════════════════════════════════════════════════════
+    📝 FUNCIONALIDADES DEL CARRITO DE COMPRAS
+    ════════════════════════════════════════════════════════════════════════
+    
+    ✅ IMPLEMENTADAS:
+    - Renderizado dinámico de productos
+    - Aumentar/Disminuir cantidad
+    - Eliminar productos individuales
+    - Vaciar carrito completo
+    - Cálculo automático de subtotal, envío y total
+    - Envío gratis para compras > $150.000
+    - Persistencia en localStorage
+    - Actualización del contador en navbar
+    - Diseño responsive
+    
+    ⏳ PENDIENTES (para backend):
+    - Integración con pasarela de pago
+    - Sistema de cupones funcional
+    - Verificación de stock en tiempo real
+    - Proceso de checkout completo
+    - Generación de orden de compra
+    - Notificaciones por email
+    
+    💾 LOCALSTORAGE:
+    - Los productos se guardan en localStorage con la clave 'familyCloudCart'
+    - Formato: Array de objetos con {id, name, price, image, quantity, size, color}
+    - Se mantiene entre sesiones del navegador
+    
+    🔧 PARA PERSONALIZAR:
+    - Cambiar shippingCost (15000) según tu política
+    - Cambiar freeShippingThreshold (150000) según tu estrategia
+    - Agregar más métodos de pago
+    - Implementar sistema de cupones real
+    
+    ════════════════════════════════════════════════════════════════════════
+-->

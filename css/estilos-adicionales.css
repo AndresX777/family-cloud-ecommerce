@@ -1,0 +1,312 @@
+/* ═══════════════════════════════════════════════════════════
+   ESTILOS ADICIONALES PARA PÁGINAS DE PRODUCTOS Y CARRITO
+   ═══════════════════════════════════════════════════════════
+   
+   📝 IMPORTANTE: Este archivo complementa styles.css
+   Agrega estos estilos al final de tu archivo css/styles.css existente
+   
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   CARDS DE PRODUCTOS
+   ═══════════════════════════════════════════════════════════ */
+
+.product-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* EFECTO ZOOM EN IMÁGENES DE PRODUCTOS */
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.1);
+}
+
+/* OVERFLOW HIDDEN PARA EL EFECTO ZOOM */
+.product-card .position-relative {
+    overflow: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FILTROS LATERAL
+   ═══════════════════════════════════════════════════════════ */
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-label {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARRITO DE COMPRAS
+   ═══════════════════════════════════════════════════════════ */
+
+.cart-item {
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* INPUT DE CANTIDAD EN EL CARRITO */
+.quantity-input {
+    max-width: 70px;
+    -moz-appearance: textfield; /* Quitar flechas en Firefox */
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Quitar flechas en Chrome/Safari */
+    margin: 0;
+}
+
+/* BOTONES DE CANTIDAD */
+.decrease-quantity,
+.increase-quantity {
+    padding: 0.375rem 0.75rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BADGE DE CONTADOR DEL CARRITO
+   ═══════════════════════════════════════════════════════════ */
+
+#cart-count {
+    font-size: 0.75rem;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMACIONES ADICIONALES
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card {
+    animation: slideInFromLeft 0.5s ease-out;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ESTADOS DE PRODUCTOS
+   ═══════════════════════════════════════════════════════════ */
+
+/* BADGE DE DESCUENTO */
+.badge.bg-danger {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* BADGE DE NUEVO PRODUCTO */
+.badge.bg-success {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* BADGE DE DESTACADO */
+.badge.bg-warning {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RATING DE ESTRELLAS
+   ═══════════════════════════════════════════════════════════ */
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORMULARIO DE CONTACTO
+   ═══════════════════════════════════════════════════════════ */
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 188, 212, 0.25);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EFECTOS HOVER PARA BOTONES CIRCULARES
+   ═══════════════════════════════════════════════════════════ */
+
+.btn.rounded-circle {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn.rounded-circle:hover {
+    transform: scale(1.1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STICKY SIDEBAR (Resumen del pedido)
+   ═══════════════════════════════════════════════════════════ */
+
+@media (min-width: 992px) {
+    .sticky-top {
+        position: sticky;
+        z-index: 1020;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MENSAJES DE ALERTA
+   ═══════════════════════════════════════════════════════════ */
+
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+.alert-info {
+    background-color: rgba(0, 188, 212, 0.1);
+    color: var(--primary-color);
+}
+
+.alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE MEJORAS
+   ═══════════════════════════════════════════════════════════ */
+
+/* TABLETS */
+@media (max-width: 992px) {
+    .product-card {
+        margin-bottom: 1rem;
+    }
+    
+    .sticky-top {
+        position: relative !important;
+        top: auto !important;
+    }
+}
+
+/* MÓVILES */
+@media (max-width: 576px) {
+    .product-card img {
+        height: 250px !important;
+    }
+    
+    .cart-item .row > div {
+        margin-bottom: 0.5rem;
+    }
+    
+    .input-group {
+        max-width: 130px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILIDADES ADICIONALES
+   ═══════════════════════════════════════════════════════════ */
+
+/* BORDES REDONDEADOS PERSONALIZADOS */
+.rounded-custom {
+    border-radius: 15px;
+}
+
+/* SOMBRA PERSONALIZADA */
+.shadow-custom {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* TEXTO TACHADO CON MEJOR VISUALIZACIÓN */
+.text-decoration-line-through {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LOADER / SPINNER (Para cuando se cargan productos)
+   ═══════════════════════════════════════════════════════════ */
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.2em;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SMOOTH SCROLL
+   ═══════════════════════════════════════════════════════════ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MEJORAS DE ACCESIBILIDAD
+   ═══════════════════════════════════════════════════════════ */
+
+/* FOCUS VISIBLE PARA NAVEGACIÓN CON TECLADO */
+*:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* MEJORAR CONTRASTE EN TEXTOS PEQUEÑOS */
+.small,
+small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NOTAS IMPORTANTES
+   ═══════════════════════════════════════════════════════════
+   
+   📋 CÓMO USAR ESTOS ESTILOS:
+   
+   OPCIÓN 1 (Recomendada):
+   - Copia todo este contenido
+   - Pégalo al FINAL de tu archivo css/styles.css existente
+   
+   OPCIÓN 2:
+   - Guarda este archivo como css/products.css
+   - Agrégalo en el <head> de tus páginas HTML después de styles.css:
+     <link href="../css/products.css" rel="stylesheet">
+   
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════
+   FIN DE ESTILOS ADICIONALES
+   ═══════════════════════════════════════════════════════════ */

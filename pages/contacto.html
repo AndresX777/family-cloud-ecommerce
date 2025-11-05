@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Family Cloud - Contáctanos">
+    <title>Contacto - Family Cloud</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="fs-4 fw-bold">FAMILY CLOUD</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hombres.html">Tiendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="#" class="text-white" aria-label="Facebook">
+                        <i class="bi bi-facebook fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <i class="bi bi-instagram fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="TikTok">
+                        <i class="bi bi-tiktok fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp fs-5"></i>
+                    </a>
+                    
+                    <a href="carrito.html" class="text-white position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════
+        SECCIÓN DE CONTACTO
+        ═══════════════════════════════════════════════════════════
+        Incluye: título, información de contacto y formulario
+    -->
+    <section class="pt-5 mt-5 bg-light min-vh-100">
+        <div class="container py-5">
+            
+            <!-- TÍTULO DE LA PÁGINA -->
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 fw-bold mb-3">Contáctanos</h1>
+                    <p class="lead text-muted">
+                        Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos pronto.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                
+                <!-- 
+                    ┌─────────────────────────────────────────────────┐
+                    │   INFORMACIÓN DE CONTACTO (IZQUIERDA)           │
+                    └─────────────────────────────────────────────────┘
+                    Cards con información de contacto e iconos
+                -->
+                <div class="col-lg-4">
+                    
+                    <!-- TARJETA: DIRECCIÓN -->
+                    <div class="card shadow-sm mb-4 border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <!-- 
+                                    ICONO GRANDE
+                                    fs-1: Tamaño de fuente grande
+                                    rounded-circle: Hace el fondo circular
+                                    bg-primary: Color de fondo primario (azul turquesa)
+                                    bg-opacity-10: 10% de opacidad para el fondo
+                                -->
+                                <div class="d-inline-block p-3 rounded-circle bg-primary bg-opacity-10">
+                                    <i class="bi bi-geo-alt-fill fs-1 text-primary"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Dirección</h5>
+                            <p class="card-text text-muted">
+                                Calle 123 #45-67<br>
+                                Bogotá, Colombia
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA: TELÉFONO -->
+                    <div class="card shadow-sm mb-4 border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <div class="d-inline-block p-3 rounded-circle bg-primary bg-opacity-10">
+                                    <i class="bi bi-telephone-fill fs-1 text-primary"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Teléfono</h5>
+                            <p class="card-text text-muted mb-2">
+                                <a href="tel:+573001234567" class="text-decoration-none text-muted">
+                                    +57 300 123 4567
+                                </a>
+                            </p>
+                            <p class="card-text text-muted">
+                                <small>Lunes a Viernes: 9:00 AM - 6:00 PM</small>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA: EMAIL -->
+                    <div class="card shadow-sm mb-4 border-0">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <div class="d-inline-block p-3 rounded-circle bg-primary bg-opacity-10">
+                                    <i class="bi bi-envelope-fill fs-1 text-primary"></i>
+                                </div>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3">Email</h5>
+                            <p class="card-text text-muted">
+                                <a href="mailto:info@familycloud.com" class="text-decoration-none text-muted">
+                                    info@familycloud.com
+                                </a>
+                            </p>
+                            <p class="card-text text-muted">
+                                <a href="mailto:soporte@familycloud.com" class="text-decoration-none text-muted">
+                                    soporte@familycloud.com
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- TARJETA: REDES SOCIALES -->
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title fw-bold mb-3">Síguenos</h5>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                    <i class="bi bi-tiktok"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-primary btn-lg rounded-circle">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 
+                    ┌─────────────────────────────────────────────────┐
+                    │   FORMULARIO DE CONTACTO (DERECHA)              │
+                    └─────────────────────────────────────────────────┘
+                -->
+                <div class="col-lg-8">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body p-5">
+                            <h3 class="card-title fw-bold mb-4">Envíanos un Mensaje</h3>
+                            
+                            <!-- 
+                                FORMULARIO DE CONTACTO
+                                action="#": Aquí iría la URL del servidor que procesa el formulario
+                                method="POST": Método HTTP para enviar datos
+                                id="contact-form": Para manipular con JavaScript
+                            -->
+                            <form action="#" method="POST" id="contact-form">
+                                
+                                <!-- FILA 1: NOMBRE Y EMAIL -->
+                                <div class="row mb-4">
+                                    <!-- CAMPO: NOMBRE -->
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label for="name" class="form-label fw-semibold">
+                                            Nombre Completo *
+                                        </label>
+                                        <input type="text" 
+                                               class="form-control form-control-lg" 
+                                               id="name" 
+                                               name="name"
+                                               placeholder="Tu nombre"
+                                               required>
+                                        <!-- 
+                                            required: Hace el campo obligatorio
+                                            form-control-lg: Tamaño grande del input
+                                        -->
+                                    </div>
+                                    
+                                    <!-- CAMPO: EMAIL -->
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label fw-semibold">
+                                            Email *
+                                        </label>
+                                        <input type="email" 
+                                               class="form-control form-control-lg" 
+                                               id="email" 
+                                               name="email"
+                                               placeholder="tu@email.com"
+                                               required>
+                                        <!-- 
+                                            type="email": Valida que sea un email válido
+                                        -->
+                                    </div>
+                                </div>
+
+                                <!-- CAMPO: TELÉFONO -->
+                                <div class="mb-4">
+                                    <label for="phone" class="form-label fw-semibold">
+                                        Teléfono (Opcional)
+                                    </label>
+                                    <input type="tel" 
+                                           class="form-control form-control-lg" 
+                                           id="phone" 
+                                           name="phone"
+                                           placeholder="+57 300 123 4567">
+                                    <!-- 
+                                        type="tel": Especifica que es un número de teléfono
+                                        No es required, por eso es opcional
+                                    -->
+                                </div>
+
+                                <!-- CAMPO: ASUNTO -->
+                                <div class="mb-4">
+                                    <label for="subject" class="form-label fw-semibold">
+                                        Asunto *
+                                    </label>
+                                    <select class="form-select form-select-lg" 
+                                            id="subject" 
+                                            name="subject"
+                                            required>
+                                        <option value="">Selecciona un asunto</option>
+                                        <option value="consulta">Consulta General</option>
+                                        <option value="pedido">Sobre mi Pedido</option>
+                                        <option value="producto">Información de Producto</option>
+                                        <option value="devolucion">Devolución o Cambio</option>
+                                        <option value="sugerencia">Sugerencia</option>
+                                        <option value="queja">Queja o Reclamo</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                    <!-- 
+                                        form-select: Clase de Bootstrap para selectores
+                                        Primera opción vacía para forzar selección
+                                    -->
+                                </div>
+
+                                <!-- CAMPO: MENSAJE -->
+                                <div class="mb-4">
+                                    <label for="message" class="form-label fw-semibold">
+                                        Mensaje *
+                                    </label>
+                                    <textarea class="form-control form-control-lg" 
+                                              id="message" 
+                                              name="message"
+                                              rows="6" 
+                                              placeholder="Escribe tu mensaje aquí..."
+                                              required></textarea>
+                                    <!-- 
+                                        rows="6": Altura del textarea en líneas
+                                        No usar cols, el ancho lo maneja Bootstrap
+                                    -->
+                                </div>
+
+                                <!-- CHECKBOX: TÉRMINOS Y CONDICIONES -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" 
+                                               type="checkbox" 
+                                               id="terms" 
+                                               name="terms"
+                                               required>
+                                        <label class="form-check-label" for="terms">
+                                            Acepto la 
+                                            <a href="#" class="text-primary">Política de Privacidad</a> 
+                                            y los 
+                                            <a href="#" class="text-primary">Términos de Servicio</a>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- BOTÓN DE ENVÍO -->
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="bi bi-send-fill me-2"></i>
+                                        Enviar Mensaje
+                                    </button>
+                                    <!-- 
+                                        d-grid gap-2: Hace el botón de ancho completo
+                                        btn-lg: Botón grande
+                                        type="submit": Envía el formulario
+                                    -->
+                                </div>
+
+                                <!-- 
+                                    MENSAJE DE ÉXITO/ERROR (oculto por defecto)
+                                    Se muestra con JavaScript después de enviar
+                                -->
+                                <div class="alert alert-success d-none mt-4" id="success-message">
+                                    <i class="bi bi-check-circle-fill me-2"></i>
+                                    ¡Mensaje enviado con éxito! Te responderemos pronto.
+                                </div>
+                                
+                                <div class="alert alert-danger d-none mt-4" id="error-message">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                    Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 
+                ═══════════════════════════════════════════════════════════
+                SECCIÓN DE MAPA (OPCIONAL)
+                ═══════════════════════════════════════════════════════════
+            -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body p-0">
+                            <!-- 
+                                GOOGLE MAPS EMBED
+                                Para implementar:
+                                1. Ve a Google Maps
+                                2. Busca tu ubicación
+                                3. Clic en "Compartir" -> "Incorporar un mapa"
+                                4. Copia el iframe y pégalo aquí
+                                
+                                Por ahora, placeholder de ejemplo
+                            -->
+                            <div class="ratio ratio-16x9">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8255252674646!2d-74.07209668573468!3d4.642850696589924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a2e0b0e0e0b%3A0x0!2sBogot%C3%A1!5e0!3m2!1ses!2sco!4v1234567890123!5m2!1ses!2sco" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Family Cloud</h5>
+                    <p class="small">Tu tienda de confianza para ropa y accesorios</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
+                        <li><a href="contacto.html" class="text-white-50 text-decoration-none">Contacto</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-tiktok fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-whatsapp fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3 bg-secondary">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">&copy; 2025 Family Cloud. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+    <!-- 
+        SCRIPT ESPECÍFICO PARA EL FORMULARIO DE CONTACTO
+        Maneja la validación y el envío del formulario
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+
+            // Manejo del envío del formulario
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Previene el envío tradicional del formulario
+
+                // Aquí iría la lógica para enviar el formulario a un servidor
+                // Por ahora, solo mostramos el mensaje de éxito
+
+                // Simular envío (reemplazar con AJAX real)
+                setTimeout(function() {
+                    // Ocultar mensaje de error si estaba visible
+                    errorMessage.classList.add('d-none');
+                    
+                    // Mostrar mensaje de éxito
+                    successMessage.classList.remove('d-none');
+                    
+                    // Limpiar el formulario
+                    contactForm.reset();
+                    
+                    // Scroll suave al mensaje
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 500);
+            });
+        });
+    </script>
+    
+</body>
+</html>
+
+<!-- 
+    ════════════════════════════════════════════════════════════════════════
+    📝 FUNCIONALIDADES DE ESTA PÁGINA
+    ════════════════════════════════════════════════════════════════════════
+    
+    ✅ IMPLEMENTADAS:
+    - 4 tarjetas de información de contacto
+    - Formulario completo con validación HTML5
+    - Validación básica con JavaScript
+    - Responsive design completo
+    - Mapa de Google Maps embebido
+    - Iconos y diseño consistente
+    
+    ⏳ PARA IMPLEMENTAR EN BACKEND (FUTURO):
+    - Envío real de emails (usando PHP, Node.js, etc.)
+    - Base de datos para guardar mensajes
+    - Sistema de tickets de soporte
+    - Notificaciones por email
+    
+    🔧 PERSONALIZACIÓN NECESARIA:
+    - Cambiar dirección, teléfono y email por los reales
+    - Actualizar el iframe del mapa con tu ubicación real
+    - Configurar el action del formulario con tu endpoint
+    - Agregar enlaces reales a redes sociales
+    
+    ════════════════════════════════════════════════════════════════════════
+-->

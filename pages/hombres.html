@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Family Cloud - Ropa para Hombres">
+    <title>Hombres - Family Cloud</title>
+    
+    <!-- 
+        📚 LIBRERÍAS EXTERNAS
+        Bootstrap: Framework CSS para diseño responsive
+        Bootstrap Icons: Iconos vectoriales
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- 
+        🎨 ESTILOS PERSONALIZADOS
+        ../ sube un nivel desde pages/ a la raíz del proyecto
+    -->
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════
+        NAVBAR - NAVEGACIÓN PRINCIPAL (FIJA EN LA PARTE SUPERIOR)
+        ═══════════════════════════════════════════════════════════
+        - fixed-top: Mantiene el navbar siempre visible al hacer scroll
+        - navbar-dark bg-dark: Colores oscuros del navbar
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <!-- Logo - Enlace a la página principal -->
+            <a class="navbar-brand d-flex align-items-center" href="../index.html">
+                <span class="fs-4 fw-bold">FAMILY CLOUD</span>
+            </a>
+            
+            <!-- 
+                BOTÓN HAMBURGUESA (solo visible en móviles)
+                data-bs-toggle: Activa el colapso del menú
+                data-bs-target: Conecta con el menú que se colapsa
+            -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- MENÚ DE NAVEGACIÓN -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- 
+                            active: Marca esta página como activa
+                            Esto cambia el color del enlace para indicar dónde está el usuario
+                        -->
+                        <a class="nav-link active" href="hombres.html">Tiendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                
+                <!-- ICONOS DE REDES SOCIALES Y CARRITO -->
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Redes sociales -->
+                    <a href="#" class="text-white" aria-label="Facebook">
+                        <i class="bi bi-facebook fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="Instagram">
+                        <i class="bi bi-instagram fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="TikTok">
+                        <i class="bi bi-tiktok fs-5"></i>
+                    </a>
+                    <a href="#" class="text-white" aria-label="WhatsApp">
+                        <i class="bi bi-whatsapp fs-5"></i>
+                    </a>
+                    
+                    <!-- 
+                        CARRITO DE COMPRAS
+                        position-relative: Posiciona el badge del contador
+                        #cart-count: Se actualiza con JavaScript
+                    -->
+                    <a href="carrito.html" class="text-white position-relative">
+                        <i class="bi bi-cart3 fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                            0
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════
+        SECCIÓN PRINCIPAL - PRODUCTOS PARA HOMBRES
+        ═══════════════════════════════════════════════════════════
+        pt-5 mt-5: Padding y margin top para compensar el navbar fijo
+        min-vh-100: Altura mínima del 100% del viewport
+    -->
+    <section class="pt-5 mt-5 bg-light min-vh-100">
+        <div class="container py-4">
+            
+            <!-- TÍTULO DE LA PÁGINA -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="display-4 fw-bold">HOMBRES</h1>
+                    <p class="lead text-muted">Encuentra tu estilo perfecto</p>
+                </div>
+            </div>
+
+            <!-- 
+                ═══════════════════════════════════════════════════════════
+                LAYOUT PRINCIPAL: FILTROS (IZQUIERDA) + PRODUCTOS (DERECHA)
+                ═══════════════════════════════════════════════════════════
+                row: Crea una fila flexible
+                g-4: Gap (espacio) entre columnas
+            -->
+            <div class="row g-4">
+                
+                <!-- 
+                    ┌─────────────────────────────────────┐
+                    │   PANEL DE FILTROS (LATERAL)        │
+                    └─────────────────────────────────────┘
+                    col-lg-3: En pantallas grandes ocupa 3 columnas (25%)
+                    col-md-4: En tablets ocupa 4 columnas (33%)
+                    col-12: En móviles ocupa todo el ancho
+                -->
+                <div class="col-lg-3 col-md-4 col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">
+                                <i class="bi bi-funnel-fill text-primary"></i> Filtros
+                            </h5>
+
+                            <!-- 
+                                ════════════════════════════════════
+                                FILTRO POR CATEGORÍAS
+                                ════════════════════════════════════
+                                Este filtro permite seleccionar tipo de prenda
+                            -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="bi bi-tag-fill text-primary"></i> Categorías
+                                </h6>
+                                <!-- 
+                                    form-check: Clase de Bootstrap para checkboxes estilizados
+                                    data-filter: Atributo personalizado para JavaScript
+                                -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="camisas" id="cat-camisas" data-filter="categoria">
+                                    <label class="form-check-label" for="cat-camisas">
+                                        Camisas
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="pantalones" id="cat-pantalones" data-filter="categoria">
+                                    <label class="form-check-label" for="cat-pantalones">
+                                        Pantalones
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="chaquetas" id="cat-chaquetas" data-filter="categoria">
+                                    <label class="form-check-label" for="cat-chaquetas">
+                                        Chaquetas
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="zapatos" id="cat-zapatos" data-filter="categoria">
+                                    <label class="form-check-label" for="cat-zapatos">
+                                        Zapatos
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <!-- 
+                                ════════════════════════════════════
+                                FILTRO POR TALLAS
+                                ════════════════════════════════════
+                                Permite seleccionar tallas disponibles
+                            -->
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3">
+                                    <i class="bi bi-rulers text-primary"></i> Tallas
+                                </h6>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="S" id="talla-s" data-filter="talla">
+                                    <label class="form-check-label" for="talla-s">
+                                        S
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="M" id="talla-m" data-filter="talla">
+                                    <label class="form-check-label" for="talla-m">
+                                        M
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="L" id="talla-l" data-filter="talla">
+                                    <label class="form-check-label" for="talla-l">
+                                        L
+                                    </label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" value="XL" id="talla-xl" data-filter="talla">
+                                    <label class="form-check-label" for="talla-xl">
+                                        XL
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- 
+                                BOTÓN PARA LIMPIAR FILTROS
+                                btn-outline-primary: Botón con borde, sin relleno
+                                w-100: Ancho completo (width 100%)
+                            -->
+                            <button class="btn btn-outline-primary w-100" id="clear-filters">
+                                <i class="bi bi-x-circle"></i> Limpiar Filtros
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 
+                    ┌─────────────────────────────────────┐
+                    │   CATÁLOGO DE PRODUCTOS             │
+                    └─────────────────────────────────────┘
+                    col-lg-9: En pantallas grandes ocupa 9 columnas (75%)
+                    col-md-8: En tablets ocupa 8 columnas (67%)
+                -->
+                <div class="col-lg-9 col-md-8 col-12">
+                    
+                    <!-- BARRA DE INFORMACIÓN Y ORDENAMIENTO -->
+                    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+                        <!-- Contador de productos encontrados -->
+                        <p class="text-muted mb-0">
+                            <span id="product-count">12</span> productos encontrados
+                        </p>
+                        
+                        <!-- 
+                            SELECTOR DE ORDENAMIENTO
+                            Permite ordenar productos por precio, nombre, etc.
+                        -->
+                        <select class="form-select w-auto" id="sort-products">
+                            <option value="default">Ordenar por</option>
+                            <option value="price-asc">Precio: Menor a Mayor</option>
+                            <option value="price-desc">Precio: Mayor a Menor</option>
+                            <option value="name-asc">Nombre: A-Z</option>
+                            <option value="name-desc">Nombre: Z-A</option>
+                        </select>
+                    </div>
+
+                    <!-- 
+                        ════════════════════════════════════════════════════════
+                        GRID DE PRODUCTOS
+                        ════════════════════════════════════════════════════════
+                        row-cols-*: Define cuántas columnas por fila en cada breakpoint
+                        - lg-3: 3 productos por fila en pantallas grandes
+                        - md-2: 2 productos por fila en tablets
+                        - 1: 1 producto por fila en móviles
+                        
+                        g-4: Gap de 1.5rem entre productos
+                        
+                        📝 NOTA: Este contenedor se llenará dinámicamente con JavaScript
+                        Los productos se cargarán desde data/productos.json
+                    -->
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="products-container">
+                        
+                        <!-- 
+                            ═══════════════════════════════════════════════════
+                            PRODUCTO DE EJEMPLO (PLACEHOLDER)
+                            ═══════════════════════════════════════════════════
+                            Este producto es solo de ejemplo
+                            En producción, se generará con JavaScript
+                        -->
+                        <div class="col" data-categoria="camisas" data-talla="M">
+                            <div class="card h-100 shadow-sm product-card">
+                                <!-- 
+                                    IMAGEN DEL PRODUCTO
+                                    card-img-top: Imagen en la parte superior de la card
+                                    object-fit-cover: La imagen cubre el área sin deformarse
+                                -->
+                                <div class="position-relative">
+                                    <img src="../images/productos/hombres/camisa-1.jpg" 
+                                         class="card-img-top" 
+                                         alt="Camisa Formal"
+                                         style="height: 300px; object-fit: cover;">
+                                    <!-- 
+                                        BADGE DE DESCUENTO (OPCIONAL)
+                                        position-absolute: Se posiciona encima de la imagen
+                                    -->
+                                    <span class="position-absolute top-0 end-0 m-2 badge bg-danger">
+                                        -20%
+                                    </span>
+                                </div>
+                                
+                                <!-- INFORMACIÓN DEL PRODUCTO -->
+                                <div class="card-body d-flex flex-column">
+                                    <!-- Nombre del producto -->
+                                    <h5 class="card-title">Camisa Formal Azul</h5>
+                                    
+                                    <!-- 
+                                        RATING (ESTRELLAS)
+                                        bi-star-fill: Estrella llena
+                                        bi-star: Estrella vacía
+                                    -->
+                                    <div class="mb-2">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star text-warning"></i>
+                                        <small class="text-muted">(4.0)</small>
+                                    </div>
+                                    
+                                    <!-- Descripción breve -->
+                                    <p class="card-text text-muted small flex-grow-1">
+                                        Camisa formal de algodón 100%. Perfecta para ocasiones especiales.
+                                    </p>
+                                    
+                                    <!-- Tallas disponibles -->
+                                    <p class="small mb-2">
+                                        <strong>Tallas:</strong> S, M, L, XL
+                                    </p>
+                                    
+                                    <!-- 
+                                        PRECIO
+                                        d-flex justify-content-between: Distribuye el espacio entre elementos
+                                    -->
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <!-- Precio con descuento -->
+                                            <span class="h5 mb-0 text-primary fw-bold">$80.000</span>
+                                            <!-- Precio original tachado -->
+                                            <small class="text-muted text-decoration-line-through ms-2">$100.000</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 
+                                        BOTÓN AGREGAR AL CARRITO
+                                        btn-primary: Botón con el color primario
+                                        w-100: Ancho completo
+                                        add-to-cart: Clase para JavaScript
+                                        data-*: Atributos con información del producto
+                                    -->
+                                    <button class="btn btn-primary w-100 add-to-cart" 
+                                            data-id="1" 
+                                            data-name="Camisa Formal Azul" 
+                                            data-price="80000"
+                                            data-image="../images/productos/hombres/camisa-1.jpg">
+                                        <i class="bi bi-cart-plus"></i> Agregar al Carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 
+                            📝 NOTA: Aquí se agregarán más productos dinámicamente
+                            El JavaScript en js/products.js se encargará de:
+                            1. Cargar productos desde data/productos.json
+                            2. Generar las cards de productos
+                            3. Aplicar filtros cuando el usuario los seleccione
+                            4. Actualizar el contador de productos
+                        -->
+
+                    </div>
+
+                    <!-- 
+                        MENSAJE CUANDO NO HAY PRODUCTOS
+                        d-none: Oculto por defecto
+                        Se muestra con JavaScript cuando los filtros no coinciden
+                    -->
+                    <div class="alert alert-info d-none" id="no-products-message">
+                        <i class="bi bi-info-circle"></i> No se encontraron productos con los filtros seleccionados.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════
+        FOOTER - PIE DE PÁGINA
+        ═══════════════════════════════════════════════════════════
+        Idéntico en todas las páginas para mantener consistencia
+    -->
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Columna 1: Información de la empresa -->
+                <div class="col-md-4 mb-3">
+                    <h5>Family Cloud</h5>
+                    <p class="small">Tu tienda de confianza para ropa y accesorios</p>
+                </div>
+                
+                <!-- Columna 2: Enlaces útiles -->
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
+                        <li><a href="contacto.html" class="text-white-50 text-decoration-none">Contacto</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3: Redes sociales -->
+                <div class="col-md-4 mb-3">
+                    <h5>Síguenos</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-tiktok fs-4"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-whatsapp fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <hr class="my-3 bg-secondary">
+            
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="small mb-0">&copy; 2025 Family Cloud. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+        ═══════════════════════════════════════════════════════════
+        SCRIPTS DE JAVASCRIPT
+        ═══════════════════════════════════════════════════════════
+        Se cargan al final para que el HTML se cargue primero
+    -->
+    
+    <!-- Bootstrap Bundle (incluye Popper.js para tooltips y dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Scripts personalizados -->
+    <script src="../js/main.js"></script>
+    <!-- 
+        SCRIPTS ADICIONALES A CREAR:
+        - filters.js: Manejo de filtros de productos
+        - products.js: Carga y renderizado de productos
+        - cart.js: Funcionalidad del carrito de compras
+    -->
+    
+</body>
+</html>
+
+<!-- 
+    ════════════════════════════════════════════════════════════════════════
+    📝 RESUMEN DE FUNCIONALIDADES DE ESTA PÁGINA
+    ════════════════════════════════════════════════════════════════════════
+    
+    ✅ IMPLEMENTADAS (HTML/CSS):
+    - Navbar con navegación completa
+    - Panel de filtros lateral (categorías y tallas)
+    - Grid responsive de productos
+    - Cards de productos con información completa
+    - Footer con enlaces y redes sociales
+    - Diseño responsive para móvil, tablet y desktop
+    
+    ⏳ PENDIENTES (JavaScript):
+    - Cargar productos desde data/productos.json
+    - Filtrado dinámico de productos
+    - Ordenamiento de productos
+    - Agregar productos al carrito
+    - Actualizar contador del carrito
+    - Búsqueda de productos
+    
+    📁 ARCHIVOS RELACIONADOS:
+    - CSS: ../css/styles.css (estilos personalizados)
+    - JS: ../js/main.js (funciones globales)
+    - JS: ../js/filters.js (filtros - a crear)
+    - JS: ../js/products.js (productos - a crear)
+    - JS: ../js/cart.js (carrito - a crear)
+    - DATA: ../data/productos.json (base de datos - a crear)
+    
+    ════════════════════════════════════════════════════════════════════════
+-->

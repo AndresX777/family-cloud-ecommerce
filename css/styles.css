@@ -94,7 +94,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #00a5bb;
+    background-color: #A8E4FF;
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
 }
