@@ -5,109 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Family Cloud - Ropa para Hombres">
     <title>Hombres - Family Cloud</title>
-    
-    <!-- 
-        📚 LIBRERÍAS EXTERNAS
-        Bootstrap: Framework CSS para diseño responsive
-        Bootstrap Icons: Iconos vectoriales
-    -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- 
-        🎨 ESTILOS PERSONALIZADOS
-        ../ sube un nivel desde pages/ a la raíz del proyecto
-    -->
     <link href="../css/styles.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- 
-        ═══════════════════════════════════════════════════════════
-        NAVBAR - NAVEGACIÓN PRINCIPAL (FIJA EN LA PARTE SUPERIOR)
-        ═══════════════════════════════════════════════════════════
-        - fixed-top: Mantiene el navbar siempre visible al hacer scroll
-        - navbar-dark bg-dark: Colores oscuros del navbar
-    -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <!-- Logo - Enlace a la página principal -->
             <a class="navbar-brand d-flex align-items-center" href="../index.html">
                 <span class="fs-4 fw-bold">FAMILY CLOUD</span>
             </a>
-            
-            <!-- 
-                BOTÓN HAMBURGUESA (solo visible en móviles)
-                data-bs-toggle: Activa el colapso del menú
-                data-bs-target: Conecta con el menú que se colapsa
-            -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
-                    aria-expanded="false" aria-label="Toggle navigation">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
-            <!-- MENÚ DE NAVEGACIÓN -->
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- 
-                            active: Marca esta página como activa
-                            Esto cambia el color del enlace para indicar dónde está el usuario
-                        -->
-                        <a class="nav-link active" href="hombres.html">Tiendas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="hombres.html">Tiendas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
-                
-                <!-- ICONOS DE REDES SOCIALES Y CARRITO -->
+
                 <div class="d-flex align-items-center gap-3">
-                    <!-- Redes sociales -->
-                    <a href="#" class="text-white" aria-label="Facebook">
-                        <i class="bi bi-facebook fs-5"></i>
-                    </a>
-                    <a href="#" class="text-white" aria-label="Instagram">
-                        <i class="bi bi-instagram fs-5"></i>
-                    </a>
-                    <a href="#" class="text-white" aria-label="TikTok">
-                        <i class="bi bi-tiktok fs-5"></i>
-                    </a>
-                    <a href="#" class="text-white" aria-label="WhatsApp">
-                        <i class="bi bi-whatsapp fs-5"></i>
-                    </a>
-                    
-                    <!-- 
-                        CARRITO DE COMPRAS
-                        position-relative: Posiciona el badge del contador
-                        #cart-count: Se actualiza con JavaScript
-                    -->
+                    <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-tiktok fs-5"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-whatsapp fs-5"></i></a>
+
                     <a href="carrito.html" class="text-white position-relative">
                         <i class="bi bi-cart3 fs-5"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
-                            0
-                        </span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge bg-danger" id="cart-count">0</span>
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- 
-        ═══════════════════════════════════════════════════════════
-        SECCIÓN PRINCIPAL - PRODUCTOS PARA HOMBRES
-        ═══════════════════════════════════════════════════════════
-        pt-5 mt-5: Padding y margin top para compensar el navbar fijo
-        min-vh-100: Altura mínima del 100% del viewport
-    -->
     <section class="pt-5 mt-5 bg-light min-vh-100">
         <div class="container py-4">
-            
-            <!-- TÍTULO DE LA PÁGINA -->
+
             <div class="row mb-4">
                 <div class="col-12">
                     <h1 class="display-4 fw-bold">HOMBRES</h1>
@@ -115,113 +54,34 @@
                 </div>
             </div>
 
-            <!-- 
-                ═══════════════════════════════════════════════════════════
-                LAYOUT PRINCIPAL: FILTROS (IZQUIERDA) + PRODUCTOS (DERECHA)
-                ═══════════════════════════════════════════════════════════
-                row: Crea una fila flexible
-                g-4: Gap (espacio) entre columnas
-            -->
             <div class="row g-4">
-                
-                <!-- 
-                    ┌─────────────────────────────────────┐
-                    │   PANEL DE FILTROS (LATERAL)        │
-                    └─────────────────────────────────────┘
-                    col-lg-3: En pantallas grandes ocupa 3 columnas (25%)
-                    col-md-4: En tablets ocupa 4 columnas (33%)
-                    col-12: En móviles ocupa todo el ancho
-                -->
+
+                <!-- FILTROS -->
                 <div class="col-lg-3 col-md-4 col-12">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">
-                                <i class="bi bi-funnel-fill text-primary"></i> Filtros
-                            </h5>
+                            <h5 class="card-title mb-4"><i class="bi bi-funnel-fill text-primary"></i> Filtros</h5>
 
-                            <!-- 
-                                ════════════════════════════════════
-                                FILTRO POR CATEGORÍAS
-                                ════════════════════════════════════
-                                Este filtro permite seleccionar tipo de prenda
-                            -->
+                            <!-- Categorías -->
                             <div class="mb-4">
-                                <h6 class="fw-bold mb-3">
-                                    <i class="bi bi-tag-fill text-primary"></i> Categorías
-                                </h6>
-                                <!-- 
-                                    form-check: Clase de Bootstrap para checkboxes estilizados
-                                    data-filter: Atributo personalizado para JavaScript
-                                -->
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="camisas" id="cat-camisas" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-camisas">
-                                        Camisas
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="pantalones" id="cat-pantalones" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-pantalones">
-                                        Pantalones
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="chaquetas" id="cat-chaquetas" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-chaquetas">
-                                        Chaquetas
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="zapatos" id="cat-zapatos" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-zapatos">
-                                        Zapatos
-                                    </label>
-                                </div>
+                                <h6 class="fw-bold mb-3"><i class="bi bi-tag-fill text-primary"></i> Categorías</h6>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="camisas"> Camisas</div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="pantalones"> Pantalones</div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="chaquetas"> Chaquetas</div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="zapatos"> Zapatos</div>
                             </div>
 
                             <hr>
 
-                            <!-- 
-                                ════════════════════════════════════
-                                FILTRO POR TALLAS
-                                ════════════════════════════════════
-                                Permite seleccionar tallas disponibles
-                            -->
+                            <!-- Tallas -->
                             <div class="mb-4">
-                                <h6 class="fw-bold mb-3">
-                                    <i class="bi bi-rulers text-primary"></i> Tallas
-                                </h6>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="S" id="talla-s" data-filter="talla">
-                                    <label class="form-check-label" for="talla-s">
-                                        S
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="M" id="talla-m" data-filter="talla">
-                                    <label class="form-check-label" for="talla-m">
-                                        M
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="L" id="talla-l" data-filter="talla">
-                                    <label class="form-check-label" for="talla-l">
-                                        L
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="XL" id="talla-xl" data-filter="talla">
-                                    <label class="form-check-label" for="talla-xl">
-                                        XL
-                                    </label>
-                                </div>
+                                <h6 class="fw-bold mb-3"><i class="bi bi-rulers text-primary"></i> Tallas</h6>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="S"> S</div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="M"> M</div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="L"> L</div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" value="XL"> XL</div>
                             </div>
 
-                            <!-- 
-                                BOTÓN PARA LIMPIAR FILTROS
-                                btn-outline-primary: Botón con borde, sin relleno
-                                w-100: Ancho completo (width 100%)
-                            -->
                             <button class="btn btn-outline-primary w-100" id="clear-filters">
                                 <i class="bi bi-x-circle"></i> Limpiar Filtros
                             </button>
@@ -229,27 +89,13 @@
                     </div>
                 </div>
 
-                <!-- 
-                    ┌─────────────────────────────────────┐
-                    │   CATÁLOGO DE PRODUCTOS             │
-                    └─────────────────────────────────────┘
-                    col-lg-9: En pantallas grandes ocupa 9 columnas (75%)
-                    col-md-8: En tablets ocupa 8 columnas (67%)
-                -->
+                <!-- PRODUCTOS -->
                 <div class="col-lg-9 col-md-8 col-12">
-                    
-                    <!-- BARRA DE INFORMACIÓN Y ORDENAMIENTO -->
-                    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
-                        <!-- Contador de productos encontrados -->
-                        <p class="text-muted mb-0">
-                            <span id="product-count">12</span> productos encontrados
-                        </p>
-                        
-                        <!-- 
-                            SELECTOR DE ORDENAMIENTO
-                            Permite ordenar productos por precio, nombre, etc.
-                        -->
-                        <select class="form-select w-auto" id="sort-products">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <p class="text-muted"><span id="product-count">12</span> productos encontrados</p>
+
+                        <select class="form-select w-auto">
                             <option value="default">Ordenar por</option>
                             <option value="price-asc">Precio: Menor a Mayor</option>
                             <option value="price-desc">Precio: Mayor a Menor</option>
@@ -258,235 +104,511 @@
                         </select>
                     </div>
 
-                    <!-- 
-                        ════════════════════════════════════════════════════════
-                        GRID DE PRODUCTOS
-                        ════════════════════════════════════════════════════════
-                        row-cols-*: Define cuántas columnas por fila en cada breakpoint
-                        - lg-3: 3 productos por fila en pantallas grandes
-                        - md-2: 2 productos por fila en tablets
-                        - 1: 1 producto por fila en móviles
-                        
-                        g-4: Gap de 1.5rem entre productos
-                        
-                        📝 NOTA: Este contenedor se llenará dinámicamente con JavaScript
-                        Los productos se cargarán desde data/productos.json
-                    -->
+                    <!--Seccion de camisetas -->
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="products-container">
-                        
-                        <!-- 
-                            ═══════════════════════════════════════════════════
-                            PRODUCTO DE EJEMPLO (PLACEHOLDER)
-                            ═══════════════════════════════════════════════════
-                            Este producto es solo de ejemplo
-                            En producción, se generará con JavaScript
-                        -->
-                        <div class="col" data-categoria="camisas" data-talla="M">
-                            <div class="card h-100 shadow-sm product-card">
-                                <!-- 
-                                    IMAGEN DEL PRODUCTO
-                                    card-img-top: Imagen en la parte superior de la card
-                                    object-fit-cover: La imagen cubre el área sin deformarse
-                                -->
-                                <div class="position-relative">
-                                    <img src="../images/productos/hombres/camisa-1.jpg" 
-                                         class="card-img-top" 
-                                         alt="Camisa Formal"
-                                         style="height: 300px; object-fit: cover;">
-                                    <!-- 
-                                        BADGE DE DESCUENTO (OPCIONAL)
-                                        position-absolute: Se posiciona encima de la imagen
-                                    -->
-                                    <span class="position-absolute top-0 end-0 m-2 badge bg-danger">
-                                        -20%
-                                    </span>
-                                </div>
-                                
-                                <!-- INFORMACIÓN DEL PRODUCTO -->
-                                <div class="card-body d-flex flex-column">
-                                    <!-- Nombre del producto -->
-                                    <h5 class="card-title">Camisa Formal Azul</h5>
-                                    
-                                    <!-- 
-                                        RATING (ESTRELLAS)
-                                        bi-star-fill: Estrella llena
-                                        bi-star: Estrella vacía
-                                    -->
-                                    <div class="mb-2">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star text-warning"></i>
-                                        <small class="text-muted">(4.0)</small>
-                                    </div>
-                                    
-                                    <!-- Descripción breve -->
-                                    <p class="card-text text-muted small flex-grow-1">
-                                        Camisa formal de algodón 100%. Perfecta para ocasiones especiales.
-                                    </p>
-                                    
-                                    <!-- Tallas disponibles -->
-                                    <p class="small mb-2">
-                                        <strong>Tallas:</strong> S, M, L, XL
-                                    </p>
-                                    
-                                    <!-- 
-                                        PRECIO
-                                        d-flex justify-content-between: Distribuye el espacio entre elementos
-                                    -->
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                            <!-- Precio con descuento -->
-                                            <span class="h5 mb-0 text-primary fw-bold">$80.000</span>
-                                            <!-- Precio original tachado -->
-                                            <small class="text-muted text-decoration-line-through ms-2">$100.000</small>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- 
-                                        BOTÓN AGREGAR AL CARRITO
-                                        btn-primary: Botón con el color primario
-                                        w-100: Ancho completo
-                                        add-to-cart: Clase para JavaScript
-                                        data-*: Atributos con información del producto
-                                    -->
-                                    <button class="btn btn-primary w-100 add-to-cart" 
-                                            data-id="1" 
-                                            data-name="Camisa Formal Azul" 
-                                            data-price="80000"
-                                            data-image="../images/productos/hombres/camisa-1.jpg">
-                                        <i class="bi bi-cart-plus"></i> Agregar al Carrito
-                                    </button>
-                                </div>
+
+                    <div class="col" data-categoria="camisas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/camisas/camisablanca.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa Casual Blanca</h5>
+                                <p class="text-muted small">Perfecta para salidas y clima cálido.</p>
+                                <span class="fw-bold h5 text-primary">$50.000</span>
                             </div>
                         </div>
-
-                        <!-- 
-                            📝 NOTA: Aquí se agregarán más productos dinámicamente
-                            El JavaScript en js/products.js se encargará de:
-                            1. Cargar productos desde data/productos.json
-                            2. Generar las cards de productos
-                            3. Aplicar filtros cuando el usuario los seleccione
-                            4. Actualizar el contador de productos
-                        -->
-
                     </div>
 
-                    <!-- 
-                        MENSAJE CUANDO NO HAY PRODUCTOS
-                        d-none: Oculto por defecto
-                        Se muestra con JavaScript cuando los filtros no coinciden
-                    -->
-                    <div class="alert alert-info d-none" id="no-products-message">
-                        <i class="bi bi-info-circle"></i> No se encontraron productos con los filtros seleccionados.
+                    <!-- Camisa 2 -->
+                    <div class="col" data-categoria="camisas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/camisas/ocaciona.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa Negra Elegante</h5>
+                                <p class="text-muted small">Ideal para eventos nocturnos.</p>
+                                <span class="fw-bold h5 text-primary">$85.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Camisa 3 -->
+                    <div class="col" data-categoria="camisas" data-talla="S">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/camisas/manga larga.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa manga larga Azul Claro</h5>
+                                <p class="text-muted small">Algodón fresco y cómodo para el dia.</p>
+                                <span class="fw-bold h5 text-primary">$65.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Camisa 4 -->
+                    <div class="col" data-categoria="camisas" data-talla="XL">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/camisas/naranja.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa Beige (naranja/salmon)</h5>
+                                <p class="text-muted small">Diseño minimalista moderno.</p>
+                                <span class="fw-bold h5 text-primary">$50.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Camisa 5 -->
+                    <div class="col" data-categoria="camisas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/camisas/negra.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa negra</h5>
+                                <p class="text-muted small">Estilo urbano elegante.</p>
+                                <span class="fw-bold h5 text-primary">$48.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Camisa 6 -->
+                    <div class="col" data-categoria="camisas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/camisas/ocacional 2.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa verde</h5>
+                                <p class="text-muted small">Diseño comodo para tus actividades diarias.</p>
+                                <span class="fw-bold h5 text-primary">$52.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!--Seccion de PANTALONES -->
+                    
+
+                    <!-- Pantalón 1 -->
+                    <div class="col" data-categoria="pantalones" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Pantalones/1.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans Clasicos Desgastados</h5>
+                                <p class="text-muted small">Tono azul claro, perfecto para un look casual.</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalón 2 -->
+                    <div class="col" data-categoria="pantalones" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Pantalones/2.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans Rectos Oscuros</h5>
+                                <p class="text-muted small">Corte clásico en deim profundo, versátil para cualquier ocasión.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalón 3 -->
+                    <div class="col" data-categoria="pantalones" data-talla="S">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Pantalones/3.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans Slim Fit Azul Medio</h5>
+                                <p class="text-muted small">Ajuste moderno y cómodo en un color intermedio.</p>
+                                <span class="fw-bold h5 text-primary">$90.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalón 4 -->
+                    <div class="col" data-categoria="pantalones" data-talla="XL">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Pantalones/4.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans de Lavado Suave</h5>
+                                <p class="text-muted small">Diseño de tela denim plegada para mayor comodidad y estilo.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalón 5 -->
+                    <div class="col" data-categoria="pantalones" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Pantalones/5.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans rotos (Destroyed)</h5>
+                                <p class="text-muted small">Estilo moderno con rasgados y parches llamativos.</p>
+                                <span class="fw-bold h5 text-primary">$78.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalón 6 -->
+                    <div class="col" data-categoria="pantalones" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Pantalones/6.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans Detalle</h5>
+                                <p class="text-muted small">Perfecto para un look casual.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!--Seccion de Chaquetas -->
+                    
+
+                    <!-- Chaqueta 1 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Chaquetas/1.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Chaqueta de Moto </h5>
+                                <p class="text-muted small">Diseño en rojo y negro, ideal para seguridad y visivilidad.</p>
+                                <span class="fw-bold h5 text-primary">$90.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta 2 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Chaquetas/2.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Chaqueta Impermeable Gris</h5>
+                                <p class="text-muted small">Chaqueta tecnica con capucha, perfecta para el mal tiempo.</p>
+                                <span class="fw-bold h5 text-primary">$90.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta 3 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="S">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Chaquetas/3.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Chaqueta Deportiva Negra 'SCOTT'</h5>
+                                <p class="text-muted small">Modelo alcochonado y resistente, ideal para actividades al aire libre.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta 4 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="XL">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Chaquetas/4.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Chaqueta Tactica Azul y Blanca</h5>
+                                <p class="text-muted small">Diseño robusto con detalles reflectantespara seguridad.</p>
+                                <span class="fw-bold h5 text-primary">$85.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta 5 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Chaquetas/5.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Chaqueta Militar Clasica Caqui</h5>
+                                <p class="text-muted small">Estilo M-65 con cuatro bolsillos frontales, atemporal y resistente.</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chaqueta 6 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Chaquetas/6.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Chaqueta Deportiva 'Tracl' Azul</h5>
+                                <p class="text-muted small">Chaqueta ligera con franjas blancas, ideal para entrenamientos y estilo casual.</p>
+                                <span class="fw-bold h5 text-primary">$95.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <!-- seccion de ZAPATOS -->
+                    
+                    <!-- Zapato 1 -->
+                    <div class="col" data-categoria="zapatos" data-talla="42">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Zapatos/1.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Tenis de Trail Running</h5>
+                                <p class="text-muted small">Zapatillas deprtivas resistentes, ideales para correr en montañaso terrenos dificiles.</p>
+                                <span class="fw-bold h5 text-primary">$90.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zapato 2 -->
+                    <div class="col" data-categoria="zapatos" data-talla="41">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Zapatos/2.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Zapatos de Vestir Acordonados</h5>
+                                <p class="text-muted small">Elegantes zapatos de cuero marron brillante, perfectos para ocasiones formales.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zapato 3 -->
+                    <div class="col" data-categoria="zapatos" data-talla="43">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Zapatos/3.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Botas de Senderismo 'Outdoor'</h5>
+                                <p class="text-muted small">Calzado robusto en tonos beige y negro, diseñados para caminatas largas.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zapato 4 -->
+                    <div class="col" data-categoria="zapatos" data-talla="42">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Zapatos/4.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Botas Tacticas de Caña Alta</h5>
+                                <p class="text-muted small">Botas militares o de trabajo color negro/verde oscuro, maxima proteccion y agarre.</p>
+                                <span class="fw-bold h5 text-primary">$90.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zapato 5 -->
+                    <div class="col" data-categoria="zapatos" data-talla="41">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Zapatos/5.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Tenis High-Top Clasicos</h5>
+                                <p class="text-muted small">Iconicas zapatillas de Iona de caña alta, ideales para un estilo urbano y casual.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Zapato 6 -->
+                    <div class="col" data-categoria="zapatos" data-talla="43">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/hombres/Zapatos/6.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Tenis Urbanos 'Vans' con llamas</h5>
+                                <p class="text-muted small">Zapatillas bajas con un diseño grafico de llamas.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
+
+                <!-- MENSAJE SIN RESULTADOS -->
+                <div class="alert alert-info d-none mt-3" id="no-products-message">
+                    No se encontraron productos con los filtros seleccionados.
+                </div>
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 
-        ═══════════════════════════════════════════════════════════
-        FOOTER - PIE DE PÁGINA
-        ═══════════════════════════════════════════════════════════
-        Idéntico en todas las páginas para mantener consistencia
-    -->
     <footer class="footer bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <!-- Columna 1: Información de la empresa -->
-                <div class="col-md-4 mb-3">
-                    <h5>Family Cloud</h5>
-                    <p class="small">Tu tienda de confianza para ropa y accesorios</p>
-                </div>
-                
-                <!-- Columna 2: Enlaces útiles -->
-                <div class="col-md-4 mb-3">
-                    <h5>Enlaces</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
-                        <li><a href="contacto.html" class="text-white-50 text-decoration-none">Contacto</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
-                        <li><a href="#" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Columna 3: Redes sociales -->
-                <div class="col-md-4 mb-3">
-                    <h5>Síguenos</h5>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white-50"><i class="bi bi-facebook fs-4"></i></a>
-                        <a href="#" class="text-white-50"><i class="bi bi-instagram fs-4"></i></a>
-                        <a href="#" class="text-white-50"><i class="bi bi-tiktok fs-4"></i></a>
-                        <a href="#" class="text-white-50"><i class="bi bi-whatsapp fs-4"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Línea divisoria -->
-            <hr class="my-3 bg-secondary">
-            
-            <!-- Copyright -->
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="small mb-0">&copy; 2025 Family Cloud. Todos los derechos reservados.</p>
-                </div>
-            </div>
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Family Cloud</p>
         </div>
     </footer>
 
-    <!-- 
-        ═══════════════════════════════════════════════════════════
-        SCRIPTS DE JAVASCRIPT
-        ═══════════════════════════════════════════════════════════
-        Se cargan al final para que el HTML se cargue primero
-    -->
-    
-    <!-- Bootstrap Bundle (incluye Popper.js para tooltips y dropdowns) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Scripts personalizados -->
-    <script src="../js/main.js"></script>
-    <!-- 
-        SCRIPTS ADICIONALES A CREAR:
-        - filters.js: Manejo de filtros de productos
-        - products.js: Carga y renderizado de productos
-        - cart.js: Funcionalidad del carrito de compras
-    -->
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("filtros-hombres: script cargado");
+
+  const products = Array.from(document.querySelectorAll("#products-container .col"));
+  const productCount = document.getElementById("product-count");
+  const noProductsMessage = document.getElementById("no-products-message");
+  const clearFiltersBtn = document.getElementById("clear-filters");
+
+
+  const categoryButtons = Array.from(document.querySelectorAll(".filter-btn"));
+  const categoryCheckboxes = Array.from(document.querySelectorAll('input[data-filter="categoria"], input[value][type="checkbox"]'))
     
+    .filter(i => i.dataset.filter === "categoria" || ["camisas","pantalones","chaquetas","zapatos"].includes(i.value));
+
+  // Selectores para tallas: botones .filter-size OR inputs[data-filter="talla"]
+  const sizeButtons = Array.from(document.querySelectorAll(".filter-size"));
+  const sizeCheckboxes = Array.from(document.querySelectorAll('input[data-filter="talla"], input[value][type="checkbox"]'))
+    .filter(i => i.dataset.filter === "talla" || ["S","M","L","XL","41","42","43"].includes(i.value));
+
+  // Estado seleccionado (soporta múltiples checks si usas checkboxes)
+  let selectedCategories = new Set();
+  let selectedSizes = new Set();
+
+  function updateCountAndMessage(visibleCount) {
+    if (productCount) productCount.textContent = visibleCount;
+    if (noProductsMessage) noProductsMessage.classList.toggle("d-none", visibleCount > 0);
+  }
+
+  function getProductMeta(product) {
+    // lee data attributes y normaliza
+    const categoria = (product.dataset.categoria || "").toString().toLowerCase();
+    const talla = (product.dataset.talla || "").toString();
+    return { categoria, talla };
+  }
+
+  function applyFilters() {
+    let visible = 0;
+
+    products.forEach(p => {
+      const { categoria, talla } = getProductMeta(p);
+
+      // Si no hay categoría seleccionada (ni by buttons ni by checkboxes) -> matchCategory = true
+      let matchCategory = true;
+      if (selectedCategories.size > 0) {
+        matchCategory = selectedCategories.has(categoria);
+      }
+
+      // Tallla
+      let matchSize = true;
+      if (selectedSizes.size > 0) {
+        matchSize = selectedSizes.has(talla);
+      }
+
+      if (matchCategory && matchSize) {
+        p.classList.remove("d-none");
+        visible++;
+      } else {
+        p.classList.add("d-none");
+      }
+    });
+
+    updateCountAndMessage(visible);
+  }
+
+  // ---------- Helpers para toggles visuales ----------
+  function setActiveButtonGroup(buttons, activeValue) {
+    buttons.forEach(b => {
+      if (b.dataset.filter === activeValue || b.dataset.size === activeValue) {
+        b.classList.remove("btn-outline-dark","btn-outline-primary");
+        // elegir estilo según tipo
+        if (b.classList.contains("filter-btn")) b.classList.add("btn-dark");
+        if (b.classList.contains("filter-size")) b.classList.add("btn-primary");
+        b.classList.add("active");
+      } else {
+        b.classList.remove("btn-dark","btn-primary","active");
+        if (b.classList.contains("filter-btn")) { b.classList.add("btn-outline-dark"); }
+        if (b.classList.contains("filter-size")) { b.classList.add("btn-outline-primary"); }
+      }
+    });
+  }
+
+  
+  if (categoryButtons.length > 0) {
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        
+        const val = btn.dataset.filter;
+        if (!val) return;
+
+        
+        if (selectedCategories.size === 1 && selectedCategories.has(val)) {
+          selectedCategories.clear();
+          setActiveButtonGroup(categoryButtons, null);
+        } else {
+          selectedCategories.clear();
+          selectedCategories.add(val);
+          setActiveButtonGroup(categoryButtons, val);
+        }
+        // clear checkboxes visual (if present)
+        categoryCheckboxes.forEach(cb => cb.checked = false);
+        applyFilters();
+      });
+    });
+  }
+
+  
+  if (categoryCheckboxes.length > 0) {
+    categoryCheckboxes.forEach(cb => {
+      cb.addEventListener("change", () => {
+        // borrar selección de botones visual
+        categoryButtons.forEach(b => {
+          b.classList.remove("btn-dark");
+          b.classList.add("btn-outline-dark");
+        });
+
+        
+        selectedCategories.clear();
+        categoryCheckboxes.forEach(c => { if (c.checked) selectedCategories.add((c.value||"").toString().toLowerCase()); });
+        applyFilters();
+      });
+    });
+  }
+
+  if (sizeButtons.length > 0) {
+    sizeButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const val = btn.dataset.size;
+        if (!val) return;
+
+        if (selectedSizes.size === 1 && selectedSizes.has(val)) {
+          selectedSizes.clear();
+          setActiveButtonGroup(sizeButtons, null);
+        } else {
+          selectedSizes.clear();
+          selectedSizes.add(val);
+          setActiveButtonGroup(sizeButtons, val);
+        }
+        
+        sizeCheckboxes.forEach(cb => cb.checked = false);
+        applyFilters();
+      });
+    });
+  }
+
+  if (sizeCheckboxes.length > 0) {
+    sizeCheckboxes.forEach(cb => {
+      cb.addEventListener("change", () => {
+        sizeButtons.forEach(b => {
+          b.classList.remove("btn-primary");
+          b.classList.add("btn-outline-primary");
+        });
+
+        selectedSizes.clear();
+        sizeCheckboxes.forEach(c => { if (c.checked) selectedSizes.add((c.value||"").toString()); });
+        applyFilters();
+      });
+    });
+  }
+
+  // Limpiar filtros
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener("click", () => {
+      selectedCategories.clear();
+      selectedSizes.clear();
+
+      // reset visual states
+      categoryButtons.forEach(b => { b.classList.remove("btn-dark","active"); b.classList.add("btn-outline-dark"); });
+      sizeButtons.forEach(b => { b.classList.remove("btn-primary","active"); b.classList.add("btn-outline-primary"); });
+      categoryCheckboxes.forEach(cb => cb.checked = false);
+      sizeCheckboxes.forEach(cb => cb.checked = false);
+
+      applyFilters();
+    });
+  }
+
+  
+  categoryCheckboxes.forEach(c => { if (c.checked) selectedCategories.add((c.value||"").toString().toLowerCase()); });
+  sizeCheckboxes.forEach(c => { if (c.checked) selectedSizes.add((c.value||"").toString()); });
+
+  applyFilters();
+});
+</script>
+
 </body>
 </html>
-
-<!-- 
-    ════════════════════════════════════════════════════════════════════════
-    📝 RESUMEN DE FUNCIONALIDADES DE ESTA PÁGINA
-    ════════════════════════════════════════════════════════════════════════
-    
-    ✅ IMPLEMENTADAS (HTML/CSS):
-    - Navbar con navegación completa
-    - Panel de filtros lateral (categorías y tallas)
-    - Grid responsive de productos
-    - Cards de productos con información completa
-    - Footer con enlaces y redes sociales
-    - Diseño responsive para móvil, tablet y desktop
-    
-    ⏳ PENDIENTES (JavaScript):
-    - Cargar productos desde data/productos.json
-    - Filtrado dinámico de productos
-    - Ordenamiento de productos
-    - Agregar productos al carrito
-    - Actualizar contador del carrito
-    - Búsqueda de productos
-    
-    📁 ARCHIVOS RELACIONADOS:
-    - CSS: ../css/styles.css (estilos personalizados)
-    - JS: ../js/main.js (funciones globales)
-    - JS: ../js/filters.js (filtros - a crear)
-    - JS: ../js/products.js (productos - a crear)
-    - JS: ../js/cart.js (carrito - a crear)
-    - DATA: ../data/productos.json (base de datos - a crear)
-    
-    ════════════════════════════════════════════════════════════════════════
--->
