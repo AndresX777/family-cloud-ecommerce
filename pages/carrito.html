@@ -332,15 +332,15 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <h5>Family Cloud</h5>
-                    <p class="small">Más que una tienda, somos una familia digital que crece contigo</p>
+                    <p class="small">Tu tienda de confianza para ropa y accesorios</p>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Enlaces</h5>
                     <ul class="list-unstyled">
-                       <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
+                        <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
                         <li><a href="contacto.html" class="text-white-50 text-decoration-none">Contacto</a></li>
-                        <li><a href="privacidad.html" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
-                        <li><a href="terminos.html" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -372,243 +372,107 @@
         ════════════════════════════════════════════════════════════
         Maneja toda la lógica del carrito de compras
     -->
-    <script>
-        // ═══════════════════════════════════════════════════════════
-        // CLASE PARA MANEJAR EL CARRITO DE COMPRAS
-        // ═══════════════════════════════════════════════════════════
-        class ShoppingCart {
-            constructor() {
-                // Cargar carrito desde localStorage o crear uno vacío
-                this.items = this.loadCart();
-                this.shippingCost = 15000; // Costo de envío fijo
-                this.freeShippingThreshold = 150000; // Umbral para envío gratis
-                this.init();
-            }
+   <!-- =======================  CARRITO  ======================= -->
+<script>
+/* ----------  Clase carrito + función global addToCart  ---------- */
+class ShoppingCart {
+    constructor() {
+        this.items = JSON.parse(localStorage.getItem('familyCloudCart') || '[]');
+        this.shippingCost = 15000;
+        this.freeShippingThreshold = 150000;
+        this.init();
+    }
+    saveCart() { localStorage.setItem('familyCloudCart', JSON.stringify(this.items)); }
+    init() { this.renderCart(); this.attachEvents(); this.updateCartCount(); }
 
-            // ═══════════════════════════════════════════════════════
-            // CARGAR CARRITO DESDE LOCALSTORAGE
-            // ═══════════════════════════════════════════════════════
-            loadCart() {
-                const savedCart = localStorage.getItem('familyCloudCart');
-                return savedCart ? JSON.parse(savedCart) : [];
-            }
+    /* Añadir producto (desde cualquier página) */
+    addToCart(prod) {
+        const exist = this.items.find(i => i.name === prod.name && i.size === prod.size && i.color === prod.color);
+        exist ? exist.quantity++ : this.items.push({...prod, quantity: 1});
+        this.saveCart();
+        this.updateCartCount();
+        this.toast('Producto agregado al carrito');
+    }
 
-            // ═══════════════════════════════════════════════════════
-            // GUARDAR CARRITO EN LOCALSTORAGE
-            // ═══════════════════════════════════════════════════════
-            saveCart() {
-                localStorage.setItem('familyCloudCart', JSON.stringify(this.items));
-            }
+    /* Notificación rápida */
+    toast(msg) {
+        const div = document.createElement('div');
+        div.className = 'alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5';
+        div.style.zIndex = 9999; div.textContent = msg;
+        document.body.appendChild(div);
+        setTimeout(() => { div.style.opacity = 0; setTimeout(() => div.remove(), 300); }, 2000);
+    }
 
-            // ═══════════════════════════════════════════════════════
-            // INICIALIZAR EVENTOS Y RENDERIZAR
-            // ═══════════════════════════════════════════════════════
-            init() {
-                this.renderCart();
-                this.attachEventListeners();
-                this.updateCartCount();
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // RENDERIZAR PRODUCTOS EN EL CARRITO
-            // ═══════════════════════════════════════════════════════
-            renderCart() {
-                const container = document.getElementById('cart-items-container');
-                const emptyCart = document.getElementById('empty-cart');
-
-                if (this.items.length === 0) {
-                    // Mostrar mensaje de carrito vacío
-                    container.innerHTML = '';
-                    emptyCart.classList.remove('d-none');
-                } else {
-                    // Mostrar productos
-                    emptyCart.classList.add('d-none');
-                    container.innerHTML = this.items.map((item, index) => `
-                        <div class="card border-0 shadow-sm mb-3 cart-item" data-index="${index}">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2 col-3">
-                                        <img src="${item.image}" 
-                                             class="img-fluid rounded" 
-                                             alt="${item.name}"
-                                             style="max-height: 100px; object-fit: cover;">
-                                    </div>
-                                    <div class="col-md-4 col-9">
-                                        <h5 class="mb-1 fw-bold">${item.name}</h5>
-                                        <p class="text-muted small mb-1">Talla: ${item.size || 'Única'}</p>
-                                        <p class="text-muted small mb-0">Color: ${item.color || 'N/A'}</p>
-                                    </div>
-                                    <div class="col-md-3 col-6 mt-3 mt-md-0">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary decrease-quantity" 
-                                                    type="button" data-index="${index}">
-                                                <i class="bi bi-dash"></i>
-                                            </button>
-                                            <input type="number" 
-                                                   class="form-control text-center quantity-input" 
-                                                   value="${item.quantity}" 
-                                                   min="1" max="10"
-                                                   data-index="${index}">
-                                            <button class="btn btn-outline-secondary increase-quantity" 
-                                                    type="button" data-index="${index}">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 col-3 text-end mt-3 mt-md-0">
-                                        <p class="fw-bold mb-2 text-primary">
-                                            $${this.formatPrice(item.price * item.quantity)}
-                                        </p>
-                                        <button class="btn btn-sm btn-outline-danger remove-item" 
-                                                data-index="${index}">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `).join('');
-                }
-
-                this.updateSummary();
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // ACTUALIZAR RESUMEN DEL PEDIDO
-            // ═══════════════════════════════════════════════════════
-            updateSummary() {
-                const subtotal = this.calculateSubtotal();
-                const shipping = subtotal >= this.freeShippingThreshold ? 0 : this.shippingCost;
-                const total = subtotal + shipping;
-
-                document.getElementById('cart-subtotal').textContent = `$${this.formatPrice(subtotal)}`;
-                document.getElementById('cart-shipping').textContent = shipping === 0 ? 'Gratis' : `$${this.formatPrice(shipping)}`;
-                document.getElementById('cart-total').textContent = `$${this.formatPrice(total)}`;
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // CALCULAR SUBTOTAL
-            // ═══════════════════════════════════════════════════════
-            calculateSubtotal() {
-                return this.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // FORMATEAR PRECIO (agregar puntos de miles)
-            // ═══════════════════════════════════════════════════════
-            formatPrice(price) {
-                return price.toLocaleString('es-CO');
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // ACTUALIZAR CONTADOR DEL CARRITO EN NAVBAR
-            // ═══════════════════════════════════════════════════════
-            updateCartCount() {
-                const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
-                document.getElementById('cart-count').textContent = totalItems;
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // AGREGAR EVENT LISTENERS
-            // ═══════════════════════════════════════════════════════
-            attachEventListeners() {
-                const container = document.getElementById('cart-items-container');
-                
-                // Aumentar cantidad
-                container.addEventListener('click', (e) => {
-                    if (e.target.closest('.increase-quantity')) {
-                        const index = e.target.closest('.increase-quantity').dataset.index;
-                        this.increaseQuantity(index);
-                    }
-                });
-
-                // Disminuir cantidad
-                container.addEventListener('click', (e) => {
-                    if (e.target.closest('.decrease-quantity')) {
-                        const index = e.target.closest('.decrease-quantity').dataset.index;
-                        this.decreaseQuantity(index);
-                    }
-                });
-
-                // Eliminar producto
-                container.addEventListener('click', (e) => {
-                    if (e.target.closest('.remove-item')) {
-                        const index = e.target.closest('.remove-item').dataset.index;
-                        this.removeItem(index);
-                    }
-                });
-
-                // Vaciar carrito
-                document.getElementById('clear-cart')?.addEventListener('click', () => {
-                    if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
-                        this.clearCart();
-                    }
-                });
-
-                // Proceder al pago
-                document.getElementById('checkout-btn')?.addEventListener('click', () => {
-                    if (this.items.length === 0) {
-                        alert('Tu carrito está vacío');
-                        return;
-                    }
-                    alert('Funcionalidad de pago en desarrollo');
-                    // Aquí iría la lógica para procesar el pago
-                });
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // AUMENTAR CANTIDAD
-            // ═══════════════════════════════════════════════════════
-            increaseQuantity(index) {
-                if (this.items[index].quantity < 10) {
-                    this.items[index].quantity++;
-                    this.saveCart();
-                    this.renderCart();
-                    this.updateCartCount();
-                }
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // DISMINUIR CANTIDAD
-            // ═══════════════════════════════════════════════════════
-            decreaseQuantity(index) {
-                if (this.items[index].quantity > 1) {
-                    this.items[index].quantity--;
-                    this.saveCart();
-                    this.renderCart();
-                    this.updateCartCount();
-                }
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // ELIMINAR PRODUCTO
-            // ═══════════════════════════════════════════════════════
-            removeItem(index) {
-                this.items.splice(index, 1);
-                this.saveCart();
-                this.renderCart();
-                this.updateCartCount();
-            }
-
-            // ═══════════════════════════════════════════════════════
-            // VACIAR CARRITO
-            // ═══════════════════════════════════════════════════════
-            clearCart() {
-                this.items = [];
-                this.saveCart();
-                this.renderCart();
-                this.updateCartCount();
-            }
+    /* Renderizar carrito */
+    renderCart() {
+        const container = document.getElementById('cart-items-container');
+        const emptyCart = document.getElementById('empty-cart');
+        if (this.items.length === 0) {
+            container.innerHTML = ''; emptyCart.classList.remove('d-none'); return;
         }
-
-        // ═══════════════════════════════════════════════════════════
-        // INICIALIZAR CARRITO CUANDO EL DOM ESTÉ LISTO
-        // ═══════════════════════════════════════════════════════════
-        document.addEventListener('DOMContentLoaded', () => {
-            const cart = new ShoppingCart();
+        emptyCart.classList.add('d-none');
+        container.innerHTML = this.items.map((it, idx) => `
+        <div class="card border-0 shadow-sm mb-3 cart-item" data-index="${idx}">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-md-2 col-3"><img src="${it.image}" class="img-fluid rounded" style="max-height:100px;object-fit:cover;"></div>
+              <div class="col-md-4 col-9">
+                <h5 class="mb-1 fw-bold">${it.name}</h5>
+                <p class="text-muted small mb-1">Talla: ${it.size||'Única'}</p>
+                <p class="text-muted small mb-0">Color: ${it.color||'N/A'}</p>
+              </div>
+              <div class="col-md-3 col-6 mt-3 mt-md-0">
+                <div class="input-group">
+                  <button class="btn btn-outline-secondary btn-sm dec" data-i="${idx}"><i class="bi bi-dash"></i></button>
+                  <input type="number" class="form-control text-center qty" value="${it.quantity}" min="1" max="10" data-i="${idx}">
+                  <button class="btn btn-outline-secondary btn-sm inc" data-i="${idx}"><i class="bi bi-plus"></i></button>
+                </div>
+              </div>
+              <div class="col-md-2 col-3 text-end mt-3 mt-md-0">
+                <p class="fw-bold mb-2 text-primary">$${(it.price*it.quantity).toLocaleString('es-CO')}</p>
+                <button class="btn btn-sm btn-outline-danger del" data-i="${idx}"><i class="bi bi-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>`).join('');
+        this.updateSummary();
+    }
+    updateSummary() {
+        const sub = this.items.reduce((s,it)=>s+it.price*it.quantity,0);
+        const ship = sub >= this.freeShippingThreshold ? 0 : this.shippingCost;
+        document.getElementById('cart-subtotal').textContent = '$' + sub.toLocaleString('es-CO');
+        document.getElementById('cart-shipping').textContent = ship ? '$'+ship.toLocaleString('es-CO') : 'Gratis';
+        document.getElementById('cart-total').textContent = '$' + (sub+ship).toLocaleString('es-CO');
+    }
+    updateCartCount() {
+        document.getElementById('cart-count').textContent = this.items.reduce((t,it)=>t+it.quantity,0);
+    }
+    attachEvents() {
+        const box = document.getElementById('cart-items-container');
+        box.addEventListener('click', e => {
+            const t = e.target.closest('button');
+            if(!t) return; const i = +t.dataset.i;
+            if(t.classList.contains('inc') && this.items[i].quantity<10) ++this.items[i].quantity;
+            if(t.classList.contains('dec') && this.items[i].quantity>1) --this.items[i].quantity;
+            if(t.classList.contains('del')) this.items.splice(i,1);
+            this.saveCart(); this.renderCart(); this.updateCartCount();
         });
-    </script>
-    
+        document.getElementById('clear-cart')?.addEventListener('click', () => {
+            if(confirm('¿Vaciar carrito?')) { this.items=[]; this.saveCart(); this.renderCart(); this.updateCartCount(); }
+        });
+    }
+}
+
+/* Función global para cualquier página */
+function addToCart(prod) {
+    const cart = new ShoppingCart();
+    cart.addToCart(prod);
+}
+
+/* Inicializar solo si estamos en carrito.html */
+if(location.pathname.includes('carrito.html'))
+    document.addEventListener('DOMContentLoaded', () => new ShoppingCart());
+</script>   
 </body>
 </html>
 

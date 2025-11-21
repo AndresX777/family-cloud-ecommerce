@@ -94,35 +94,21 @@
                                     <i class="bi bi-tag-fill text-primary"></i> Categorías
                                 </h6>
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="blusas" id="cat-blusas" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-blusas">
-                                        Blusas
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="vestidos" id="cat-vestidos" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-vestidos">
-                                        Vestidos
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="pantalones" id="cat-pantalones" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-pantalones">
-                                        Pantalones
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="faldas" id="cat-faldas" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-faldas">
-                                        Faldas
-                                    </label>
-                                </div>
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" value="chaquetas" id="cat-chaquetas" data-filter="categoria">
-                                    <label class="form-check-label" for="cat-chaquetas">
-                                        Chaquetas
-                                    </label>
-                                </div>
+    <input class="form-check-input" type="checkbox" value="camisas" id="cat-camisas" data-filter="categoria">
+    <label class="form-check-label" for="cat-camisas">Blusas</label>
+</div>
+<div class="form-check mb-2">
+    <input class="form-check-input" type="checkbox" value="pantalones" id="cat-pantalones" data-filter="categoria">
+    <label class="form-check-label" for="cat-pantalones">Vestidos</label>
+</div>
+<div class="form-check mb-2">
+    <input class="form-check-input" type="checkbox" value="chaquetas" id="cat-chaquetas" data-filter="categoria">
+    <label class="form-check-label" for="cat-chaquetas">Pantalones</label>
+</div>
+<div class="form-check mb-2">
+    <input class="form-check-input" type="checkbox" value="zapatos" id="cat-zapatos" data-filter="categoria">
+    <label class="form-check-label" for="cat-zapatos">Faldas</label>
+</div>
                             </div>
 
                             <hr>
@@ -190,85 +176,426 @@
 
                     <!-- GRID DE PRODUCTOS -->
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="products-container">
-                        
-                        <!-- PRODUCTO DE EJEMPLO -->
-                        <div class="col" data-categoria="vestidos" data-talla="M">
-                            <div class="card h-100 shadow-sm product-card">
-                                <div class="position-relative">
-                                    <img src="../images/productos/mujeres/vestido-1.jpg" 
-                                         class="card-img-top" 
-                                         alt="Vestido Elegante"
-                                         style="height: 300px; object-fit: cover;">
-                                    <span class="position-absolute top-0 end-0 m-2 badge bg-success">
-                                        Nuevo
-                                    </span>
-                                </div>
+                            <div class="col" data-categoria="camisas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Blusas/1.png" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa Rosan Clasica</h5>
+                                <p class="text-muted small">Perfecta para salidas y climas calidos, estilo simple y basico.</p>
+                                <span class="fw-bold h5 text-primary">$60.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>                                                     
                                 
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">Vestido Elegante Negro</h5>
-                                    
-                                    <div class="mb-2">
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-fill text-warning"></i>
-                                        <i class="bi bi-star-half text-warning"></i>
-                                        <small class="text-muted">(4.5)</small>
-                                    </div>
-                                    
-                                    <p class="card-text text-muted small flex-grow-1">
-                                        Vestido elegante perfecto para ocasiones especiales. Diseño moderno y cómodo.
-                                    </p>
-                                    
-                                    <p class="small mb-2">
-                                        <strong>Tallas:</strong> XS, S, M, L, XL
-                                    </p>
-                                    
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <div>
-                                            <span class="h5 mb-0 text-primary fw-bold">$120.000</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <button class="btn btn-primary w-100 add-to-cart" 
-                                            data-id="101" 
-                                            data-name="Vestido Elegante Negro" 
-                                            data-price="120000"
-                                            data-image="../images/productos/mujeres/vestido-1.jpg">
-                                        <i class="bi bi-cart-plus"></i> Agregar al Carrito
-                                    </button>
-                                </div>
                             </div>
                         </div>
-
-                        <!-- Más productos se agregarán dinámicamente -->
-
                     </div>
 
-                    <div class="alert alert-info d-none" id="no-products-message">
-                        <i class="bi bi-info-circle"></i> No se encontraron productos con los filtros seleccionados.
+                    <!-- Blusa 2 -->
+                    <div class="col" data-categoria="camisas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Blusas/2.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Crop Top Negro</h5>
+                                <p class="text-muted small">Camiseta negra con diseño de mariposas, ideal para eventos nocturnos o casuales.</p>
+                                <span class="fw-bold h5 text-primary">$65.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blusa 3 -->
+                    <div class="col" data-categoria="camisas" data-talla="S">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Blusas/3.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Crop Top Manga Larga Vino</h5>
+                                <p class="text-muted small">Algodon fresco y comodo con un pequeño estampado de planeta.</p>
+                                <span class="fw-bold h5 text-primary">$65.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blusa 4 -->
+                    <div class="col" data-categoria="camisas" data-talla="XL">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Blusas/4.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jersey Deportivo Oversize '23'</h5>
+                                <p class="text-muted small">Estilo 'College' o de futbol americano .</p>
+                                <span class="fw-bold h5 text-primary">$50.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blusa 5 -->
+                    <div class="col" data-categoria="camisas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Blusas/5.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Crop Top Estrellado</h5>
+                                <p class="text-muted small">Diseño bicolor tipo beisbol con cuello redondo y estampado de estrella.</p>
+                                <span class="fw-bold h5 text-primary">$58.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blusa 6 -->
+                    <div class="col" data-categoria="camisas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Blusas/6.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Camisa Oversize 'Bunny Azul'</h5>
+                                <p class="text-muted small">Camisa holgada con un tierno estampado de conejo, muy comoda y juvenil.</p>
+                                <span class="fw-bold h5 text-primary">$52.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!--Seccion de Vestidos -->
+                    
+
+                    <!-- Vestido 1 -->
+                    <div class="col" data-categoria="pantalones" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Vestidos/1.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Vestido de Noche Negro Estilo Capa</h5>
+                                <p class="text-muted small">Corte elegante con escote halter y capa suave, perfecto para eventos formales.</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vestido 2 -->
+                    <div class="col" data-categoria="pantalones" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Vestidos/2.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Vestido de Fiesta estampado Vintage</h5>
+                                <p class="text-muted small">Diseño en blanco y negro con falda A, ideal para bodas o reuniones semi-formales.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vestido 3 -->
+                    <div class="col" data-categoria="pantalones" data-talla="S">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Vestidos/3.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Vestido A-Line Floral Bicolor</h5>
+                                <p class="text-muted small">Fondo oscuro con estampado de flores blancas, moderno y juvenil.</p>
+                                <span class="fw-bold h5 text-primary">$60.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vestido 4 -->
+                    <div class="col" data-categoria="pantalones" data-talla="XL">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Vestidos/4.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Vestido de Tul Acordonado Azul Marino</h5>
+                                <p class="text-muted small">Diseño de cuello corazon con falda de tul plisada.</p>
+                                <span class="fw-bold h5 text-primary">$60.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vestido 5 -->
+                    <div class="col" data-categoria="pantalones" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Vestidos/5.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Vestido de Corte Rosa con Encaje</h5>
+                                <p class="text-muted small">Estilo dulce con corpiño de encaje rosado y falda voluminosa de tul.</p>
+                                <span class="fw-bold h5 text-primary">$68.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vestido 6 -->
+                    <div class="col" data-categoria="pantalones" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Vestidos/6.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Vestido Strapless Morado Intenso</h5>
+                                <p class="text-muted small">Vestido de gala o fiesta en color purpura, con cinturon fino a juego.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <!--Seccion de Pantalones -->
+                    
+
+                    <!-- Pantalon 1 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Pantalones/1.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans 'Flare' con Corazones </h5>
+                                <p class="text-muted small">Vaqueros acompañados con detalle de corazon, estilo retro y moderno.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalon 2 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Pantalones/2.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans Rotos con Parches Graficos</h5>
+                                <p class="text-muted small">Diseño 'Distroyed' con parches y frases, muy juvenil y llamativo.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalon 3 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="S">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Pantalones/3.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Pantalon Negro Recto con Mariposas</h5>
+                                <p class="text-muted small">Pantalon oscuro con siluetas de mariposas, ideal para un estilo elegante y alternativo.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalon 4 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="XL">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Pantalones/4.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Pantalon Cargo Oscuro co Cadena</h5>
+                                <p class="text-muted small">Pantalon utilitario con bolsillos laterales y cadena decorativa, estilo urbano.</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalon 5 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="M">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Pantalones/5.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Pantalon a Cuadros</h5>
+                                <p class="text-muted small">Diseño a cuadros blancos y negros ajustado, moderno y de tendencia.</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pantalon 6 -->
+                    <div class="col" data-categoria="chaquetas" data-talla="L">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Pantalones/6.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Jeans de Bota Ancha</h5>
+                                <p class="text-muted small">Vaquero de corte amplio y holgado, muy comodo y en tendencia.</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    <!-- seccion de FALDAS -->
+                    
+                    <!-- Faldas 1 -->
+                    <div class="col" data-categoria="zapatos" data-talla="42">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Faldas/1.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Minifalda Gotica</h5>
+                                <p class="text-muted small">Falda oscura con argolla y cadenas decorativas, estilo 'punk' o gotico.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faldas 2 -->
+                    <div class="col" data-categoria="zapatos" data-talla="41">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Faldas/2.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Minifalda de Denim Plisada</h5>
+                                <p class="text-muted small">Falda corta gris con tirantes estilo escolar.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faldas 3 -->
+                    <div class="col" data-categoria="zapatos" data-talla="43">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Faldas/3.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Falda de Tirantes a Cuadros</h5>
+                                <p class="text-muted small">Falda corta gris de cuadros con tirantes estilo escolar.</p>
+                                <span class="fw-bold h5 text-primary">$70.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faldas 4 -->
+                    <div class="col" data-categoria="zapatos" data-talla="42">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Faldas/4.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Falda Larga Floral de Gasa</h5>
+                                <p class="text-muted small">Falda de corte A con estampado de flores rosadas, veprosa y romantica.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faldas 5 -->
+                    <div class="col" data-categoria="zapatos" data-talla="41">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Faldas/5.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Falda Midi A-Line con Botones</h5>
+                                <p class="text-muted small">Falda de corte medio en tela azul, con doble fila de botones decorativos.</p>
+                                <span class="fw-bold h5 text-primary">$80.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faldas 6 -->
+                    <div class="col" data-categoria="zapatos" data-talla="43">
+                        <div class="card h-100 shadow-sm rounded-4 product-card">
+                            <img src="../img/Mujeres/Faldas/6.jpg" class="card-img-top rounded-top-4" style="height:310px; object-fit:cover;">
+                            <div class="card-body">
+                                <h5 class="fw-bold">Falda Larga de Corse con Lazada</h5>
+                                <p class="text-muted small">Falda oscura con detalle de lazada tipo corse en la parte superior..</p>
+                                <span class="fw-bold h5 text-primary">$75.000</span>
+                                <button class="btn btn-primary w-100 mt-2 add-to-cart">
+    <i class="bi bi-cart-plus"></i> Agregar al carrito
+</button>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
+
+                <!-- MENSAJE SIN RESULTADOS -->
+                <div class="alert alert-info d-none mt-3" id="no-products-message">
+                    No se encontraron productos con los filtros seleccionados.
+                </div>
+
             </div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
+    </div>
+</section>
+<!-- FOOTER -->
     <footer class="footer bg-dark text-white py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <h5>Family Cloud</h5>
-                    <p class="small">Más que una tienda, somos una familia digital que crece contigo</p>
+                    <p class="small">Tu tienda de confianza para ropa y accesorios</p>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Enlaces</h5>
                     <ul class="list-unstyled">
                         <li><a href="nosotros.html" class="text-white-50 text-decoration-none">Quiénes Somos</a></li>
                         <li><a href="contacto.html" class="text-white-50 text-decoration-none">Contacto</a></li>
-                        <li><a href="privacidad.html" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
-                        <li><a href="terminos.html" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Términos y Condiciones</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-3">
@@ -289,10 +616,247 @@
             </div>
         </div>
     </footer>
+    <footer class="footer bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 Family Cloud</p>
+        </div>
+    </footer>
 
-    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
     
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("filtros-hombres: script cargado");
+
+  const products = Array.from(document.querySelectorAll("#products-container .col"));
+  const productCount = document.getElementById("product-count");
+  const noProductsMessage = document.getElementById("no-products-message");
+  const clearFiltersBtn = document.getElementById("clear-filters");
+
+
+  const categoryButtons = Array.from(document.querySelectorAll(".filter-btn"));
+  const categoryCheckboxes = Array.from(document.querySelectorAll('input[data-filter="categoria"], input[value][type="checkbox"]'))
+    
+    .filter(i => i.dataset.filter === "categoria" || ["camisas","pantalones","chaquetas","zapatos"].includes(i.value));
+
+  // Selectores para tallas: botones .filter-size OR inputs[data-filter="talla"]
+  const sizeButtons = Array.from(document.querySelectorAll(".filter-size"));
+  const sizeCheckboxes = Array.from(document.querySelectorAll('input[data-filter="talla"], input[value][type="checkbox"]'))
+    .filter(i => i.dataset.filter === "talla" || ["S","M","L","XL","41","42","43"].includes(i.value));
+
+  // Estado seleccionado (soporta múltiples checks si usas checkboxes)
+  let selectedCategories = new Set();
+  let selectedSizes = new Set();
+
+  function updateCountAndMessage(visibleCount) {
+    if (productCount) productCount.textContent = visibleCount;
+    if (noProductsMessage) noProductsMessage.classList.toggle("d-none", visibleCount > 0);
+  }
+
+  function getProductMeta(product) {
+    // lee data attributes y normaliza
+    const categoria = (product.dataset.categoria || "").toString().toLowerCase();
+    const talla = (product.dataset.talla || "").toString();
+    return { categoria, talla };
+  }
+
+  function applyFilters() {
+    let visible = 0;
+
+    products.forEach(p => {
+      const { categoria, talla } = getProductMeta(p);
+
+      // Si no hay categoría seleccionada (ni by buttons ni by checkboxes) -> matchCategory = true
+      let matchCategory = true;
+      if (selectedCategories.size > 0) {
+        matchCategory = selectedCategories.has(categoria);
+      }
+
+      // Tallla
+      let matchSize = true;
+      if (selectedSizes.size > 0) {
+        matchSize = selectedSizes.has(talla);
+      }
+
+      if (matchCategory && matchSize) {
+        p.classList.remove("d-none");
+        visible++;
+      } else {
+        p.classList.add("d-none");
+      }
+    });
+
+    updateCountAndMessage(visible);
+  }
+
+  // ---------- Helpers para toggles visuales ----------
+  function setActiveButtonGroup(buttons, activeValue) {
+    buttons.forEach(b => {
+      if (b.dataset.filter === activeValue || b.dataset.size === activeValue) {
+        b.classList.remove("btn-outline-dark","btn-outline-primary");
+        // elegir estilo según tipo
+        if (b.classList.contains("filter-btn")) b.classList.add("btn-dark");
+        if (b.classList.contains("filter-size")) b.classList.add("btn-primary");
+        b.classList.add("active");
+      } else {
+        b.classList.remove("btn-dark","btn-primary","active");
+        if (b.classList.contains("filter-btn")) { b.classList.add("btn-outline-dark"); }
+        if (b.classList.contains("filter-size")) { b.classList.add("btn-outline-primary"); }
+      }
+    });
+  }
+
+  
+  if (categoryButtons.length > 0) {
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        
+        const val = btn.dataset.filter;
+        if (!val) return;
+
+        
+        if (selectedCategories.size === 1 && selectedCategories.has(val)) {
+          selectedCategories.clear();
+          setActiveButtonGroup(categoryButtons, null);
+        } else {
+          selectedCategories.clear();
+          selectedCategories.add(val);
+          setActiveButtonGroup(categoryButtons, val);
+        }
+        // clear checkboxes visual (if present)
+        categoryCheckboxes.forEach(cb => cb.checked = false);
+        applyFilters();
+      });
+    });
+  }
+
+  
+  if (categoryCheckboxes.length > 0) {
+    categoryCheckboxes.forEach(cb => {
+      cb.addEventListener("change", () => {
+        // borrar selección de botones visual
+        categoryButtons.forEach(b => {
+          b.classList.remove("btn-dark");
+          b.classList.add("btn-outline-dark");
+        });
+
+        
+        selectedCategories.clear();
+        categoryCheckboxes.forEach(c => { if (c.checked) selectedCategories.add((c.value||"").toString().toLowerCase()); });
+        applyFilters();
+      });
+    });
+  }
+
+  if (sizeButtons.length > 0) {
+    sizeButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const val = btn.dataset.size;
+        if (!val) return;
+
+        if (selectedSizes.size === 1 && selectedSizes.has(val)) {
+          selectedSizes.clear();
+          setActiveButtonGroup(sizeButtons, null);
+        } else {
+          selectedSizes.clear();
+          selectedSizes.add(val);
+          setActiveButtonGroup(sizeButtons, val);
+        }
+        
+        sizeCheckboxes.forEach(cb => cb.checked = false);
+        applyFilters();
+      });
+    });
+  }
+
+  if (sizeCheckboxes.length > 0) {
+    sizeCheckboxes.forEach(cb => {
+      cb.addEventListener("change", () => {
+        sizeButtons.forEach(b => {
+          b.classList.remove("btn-primary");
+          b.classList.add("btn-outline-primary");
+        });
+
+        selectedSizes.clear();
+        sizeCheckboxes.forEach(c => { if (c.checked) selectedSizes.add((c.value||"").toString()); });
+        applyFilters();
+      });
+    });
+  }
+
+  // Limpiar filtros
+  if (clearFiltersBtn) {
+    clearFiltersBtn.addEventListener("click", () => {
+      selectedCategories.clear();
+      selectedSizes.clear();
+
+      // reset visual states
+      categoryButtons.forEach(b => { b.classList.remove("btn-dark","active"); b.classList.add("btn-outline-dark"); });
+      sizeButtons.forEach(b => { b.classList.remove("btn-primary","active"); b.classList.add("btn-outline-primary"); });
+      categoryCheckboxes.forEach(cb => cb.checked = false);
+      sizeCheckboxes.forEach(cb => cb.checked = false);
+
+      applyFilters();
+    });
+  }
+
+  
+  categoryCheckboxes.forEach(c => { if (c.checked) selectedCategories.add((c.value||"").toString().toLowerCase()); });
+  sizeCheckboxes.forEach(c => { if (c.checked) selectedSizes.add((c.value||"").toString()); });
+
+  applyFilters();
+});
+</script>
+<script>
+/* ----------  Clase carrito + función global addToCart  ---------- */
+class ShoppingCart {
+    constructor() {
+        this.items = JSON.parse(localStorage.getItem('familyCloudCart') || '[]');
+        this.shippingCost = 15000;
+        this.freeShippingThreshold = 150000;
+    }
+    saveCart() { localStorage.setItem('familyCloudCart', JSON.stringify(this.items)); }
+    addToCart(prod) {
+        const exist = this.items.find(i => i.name === prod.name && i.size === prod.size && i.color === prod.color);
+        exist ? exist.quantity++ : this.items.push({...prod, quantity: 1});
+        this.saveCart();
+        this.updateCartCount();
+        this.toast('Producto agregado al carrito');
+    }
+    updateCartCount() {
+        const total = this.items.reduce((t, it) => t + it.quantity, 0);
+        const badge = document.getElementById('cart-count');
+        if (badge) badge.textContent = total;
+    }
+    toast(msg) {
+        const div = document.createElement('div');
+        div.className = 'alert alert-success position-fixed top-0 start-50 translate-middle-x mt-5';
+        div.style.zIndex = 9999; div.textContent = msg;
+        document.body.appendChild(div);
+        setTimeout(() => { div.style.opacity = 0; setTimeout(() => div.remove(), 300); }, 2000);
+    }
+}
+
+/* Función global para cualquier página */
+function addToCart(prod) {
+    const cart = new ShoppingCart();
+    cart.addToCart(prod);
+}
+
+/* Lee la tarjeta del producto y la manda al carrito */
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", function() {
+        const card  = this.closest('.card');
+        const name  = card.querySelector('h5').textContent.trim();
+        const priceText = card.querySelector('.text-primary').textContent.trim();
+        const price = parseInt(priceText.replace(/[$.]/g, '').replace(',', ''));
+        const image = card.querySelector('img').src;
+        const size  = this.closest('.col').dataset.talla || 'Única';
+        const color = 'N/A';
+        addToCart({name, price, image, size, color});
+    });
+});
+</script>
 </body>
 </html>
